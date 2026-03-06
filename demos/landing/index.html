@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claire Martin | Coach en Développement Personnel</title>
+    <meta name="description"
+        content="Claire Martin, coach certifiée en développement personnel. Séances individuelles et ateliers de groupe. Reprenez le contrôle de votre vie.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --sage: #7c9a8e;
+            --sage-dark: #5f7d71;
+            --sage-light: #e8f0ec;
+            --sand: #f7f5f2;
+            --charcoal: #2d2d2d;
+            --text: #555555;
+            --text-light: #999999;
+            --white: #ffffff;
+            --radius: 16px;
+            --transition: 0.3s ease;
+            --font: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--sand);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--sage);
+            color: white;
+        }
+
+        .container {
+            max-width: 1080px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(247, 245, 242, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            height: 70px;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-brand {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            background: var(--sage-light);
+            color: var(--sage-dark);
+        }
+
+        .nav-cta {
+            background: var(--sage) !important;
+            color: white !important;
+            padding: 0.6rem 1.4rem !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--sage-dark) !important;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--sage-light) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .hero-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--sage);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--sage-light);
+            font-size: 2.5rem;
+            color: var(--sage);
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--sage-light);
+            color: var(--sage-dark);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            color: var(--charcoal);
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 2rem;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .btn-sage {
+            background: var(--sage);
+            color: white;
+            box-shadow: 0 4px 15px rgba(124, 154, 142, 0.3);
+        }
+
+        .btn-sage:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 154, 142, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--sage);
+            color: var(--sage-dark);
+        }
+
+        /* Trust */
+        .trust {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .trust-icon {
+            width: 44px;
+            height: 44px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sage);
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .trust-item strong {
+            color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+
+        .trust-item span {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--sage);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+            border-color: rgba(124, 154, 142, 0.2);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--sage-light);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            color: var(--sage);
+            font-size: 1.3rem;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Process */
+        .process {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            counter-reset: step;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            counter-increment: step;
+        }
+
+        .process-step::before {
+            content: counter(step);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--sage);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h4 {
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .process-step p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Testimonial */
+        .testimonial {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            background: white;
+            border-radius: var(--radius);
+            padding: 3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .testimonial-quote blockquote {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--sage-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sage);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .testimonial-author strong {
+            color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-author span {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: var(--sage);
+            text-align: center;
+            border-radius: 0;
+        }
+
+        .cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--sage-dark);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .trust-items {
+                gap: 1.5rem;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.5s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-brand">Claire Martin</a>
+            <ul class="nav-links">
+                <li><a href="#services">Accompagnement</a></li>
+                <li><a href="#methode">Méthode</a></li>
+                <li><a href="#contact" class="nav-cta"><i class="fas fa-calendar"></i> Réserver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <div class="hero-avatar"><i class="fas fa-heart"></i></div>
+                <div class="hero-tag"><i class="fas fa-certificate"></i> Coach Certifiée ICF</div>
+                <h1>Reprenez le contrôle de votre vie, avec sérénité</h1>
+                <p>Je vous accompagne dans votre transformation personnelle avec bienveillance. Ensemble, construisons
+                    la vie qui vous ressemble.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-sage"><i class="fas fa-calendar-check"></i> Séance découverte
+                        gratuite</a>
+                    <a href="#services" class="btn btn-outline"><i class="fas fa-arrow-down"></i> En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="trust">
+        <div class="container">
+            <div class="trust-items reveal">
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-users"></i></div>
+                    <div><strong>+150 clients</strong><span>Accompagnés</span></div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-star"></i></div>
+                    <div><strong>4.9/5</strong><span>Satisfaction</span></div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-award"></i></div>
+                    <div><strong>Certifiée ICF</strong><span>Depuis 2019</span></div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-video"></i></div>
+                    <div><strong>Présentiel & Visio</strong><span>À votre convenance</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-label reveal"><i class="fas fa-sparkles"></i> Accompagnement</div>
+            <h2 class="section-title reveal">Comment puis-je vous aider ?</h2>
+            <p class="section-subtitle reveal">Des formules adaptées à vos besoins et à votre rythme.</p>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-user"></i></div>
+                    <h3>Coaching individuel</h3>
+                    <p>Séances personnalisées pour surmonter vos blocages, clarifier vos objectifs et passer à l'action
+                        en toute confiance.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>Ateliers de groupe</h3>
+                    <p>Partagez, apprenez et grandissez ensemble lors d'ateliers thématiques dans une ambiance
+                        bienveillante et motivante.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Coaching entreprise</h3>
+                    <p>Accompagnement des équipes et managers pour améliorer la cohésion, la communication et la
+                        performance collective.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="methode" class="process">
+        <div class="container">
+            <div class="section-label reveal"><i class="fas fa-route"></i> Ma méthode</div>
+            <h2 class="section-title reveal">Un parcours en 4 étapes</h2>
+            <p class="section-subtitle reveal">Un accompagnement structuré pour des résultats concrets.</p>
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <h4>Écoute</h4>
+                    <p>Nous clarifions votre situation et vos objectifs</p>
+                </div>
+                <div class="process-step reveal">
+                    <h4>Plan d'action</h4>
+                    <p>Nous définissons un plan personnalisé et réaliste</p>
+                </div>
+                <div class="process-step reveal">
+                    <h4>Accompagnement</h4>
+                    <p>Nous avançons ensemble, séance après séance</p>
+                </div>
+                <div class="process-step reveal">
+                    <h4>Autonomie</h4>
+                    <p>Vous repartez avec les clés pour continuer seul(e)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+        <div class="container">
+            <div class="section-label reveal"><i class="fas fa-heart"></i> Témoignage</div>
+            <h2 class="section-title reveal">Ce qu'ils disent</h2>
+            <div class="testimonial-quote reveal">
+                <blockquote>"Claire m'a aidée à prendre du recul sur ma vie professionnelle. Grâce à son accompagnement,
+                    j'ai réussi ma reconversion et je suis enfin épanouie dans mon travail."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AV</div>
+                    <div>
+                        <strong>Aurélie V.</strong>
+                        <span>En reconversion professionnelle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta">
+        <div class="container reveal">
+            <h2>Prêt(e) à transformer votre vie ?</h2>
+            <p>Votre première séance découverte est offerte. Réservez dès maintenant.</p>
+            <a href="mailto:contact@clairemartin.fr" class="btn btn-white"><i class="fas fa-calendar-check"></i>
+                Réserver ma séance gratuite</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Claire Martin — Site créé par Maël Grosa</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            document.querySelectorAll('.reveal').forEach(function (el) {
+                if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add('active');
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+
+</html>
