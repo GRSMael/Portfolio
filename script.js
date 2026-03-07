@@ -181,24 +181,29 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
             const original = btn.innerHTML;
+
+            const data = {
+                from_name: form.querySelector('[name="from_name"]').value.trim(),
+                name: form.querySelector('[name="from_name"]').value.trim(),
+                from_email: form.querySelector('[name="from_email"]').value.trim(),
+                message: form.querySelector('[name="message"]').value.trim(),
+                project_type: form.querySelector('[name="project_type"]')?.value || "",
+                time: new Date().toLocaleString(),
+                reply_to: form.querySelector('[name="from_email"]').value.trim(),
+                title: "Demande de devis — Portfolio Pro",
+            };
+
+            if (!data.from_name || !data.from_email || !data.message) {
+                showToast("Veuillez remplir tous les champs obligatoires", "error");
+                return;
+            }
+
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
             try {
-                const data = {
-                    from_name: form.querySelector('[name="from_name"]').value.trim(),
-                    name: form.querySelector('[name="from_name"]').value.trim(),
-                    from_email: form.querySelector('[name="from_email"]').value.trim(),
-                    message: form.querySelector('[name="message"]').value.trim(),
-                    project_type: form.querySelector('[name="project_type"]')?.value || "",
-                    time: new Date().toLocaleString(),
-                    reply_to: form.querySelector('[name="from_email"]').value.trim(),
-                    title: "Demande de devis — Portfolio Pro",
-                };
-
-                if (!data.from_name || !data.from_email || !data.message) {
-                    showToast("Veuillez remplir tous les champs obligatoires", "error");
-                    return;
+                if (!window.emailJsConfig) {
+                    throw new Error("EmailJS non configuré");
                 }
 
                 const res = await emailjs.send(
@@ -211,10 +216,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (res.status === 200) {
                     showToast("Demande envoyée ! Je vous réponds sous 24h.");
                     form.reset();
+                } else {
+                    throw new Error("Statut inattendu: " + res.status);
                 }
             } catch (err) {
-                console.error(err);
-                showToast("Erreur. Réessayez ou écrivez-moi directement par email.", "error");
+                console.error("Erreur EmailJS:", err);
+                showToast("Erreur d'envoi. Essayez de m'écrire directement à grosa.mael.13@gmail.com", "error");
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = original;
