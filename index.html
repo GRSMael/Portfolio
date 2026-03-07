@@ -30,6 +30,16 @@
     </script>
 
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R45SSMC4CZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-R45SSMC4CZ');
+    </script>
 </head>
 
 <body>
@@ -366,27 +376,34 @@
                 <form id="contact-form" class="contact-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="from_name">Votre nom</label>
+                            <label for="from_name">Votre nom <span class="required">*</span></label>
                             <input type="text" id="from_name" name="from_name" placeholder="Jean Dupont" required>
                         </div>
                         <div class="form-group">
                             <label for="from_email">Votre email</label>
-                            <input type="email" id="from_email" name="from_email" placeholder="jean@exemple.fr"
-                                required>
+                            <input type="email" id="from_email" name="from_email" placeholder="jean@exemple.fr">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="project_type">Type de projet</label>
-                        <select id="project_type" name="project_type">
-                            <option value="">— Choisir —</option>
-                            <option value="Site vitrine">Site vitrine</option>
-                            <option value="Landing page">Landing page</option>
-                            <option value="Application web">Application web</option>
-                            <option value="Autre">Autre</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Votre téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                        </div>
+                        <div class="form-group">
+                            <label for="project_type">Type de projet</label>
+                            <select id="project_type" name="project_type">
+                                <option value="">— Choisir —</option>
+                                <option value="Site vitrine">Site vitrine</option>
+                                <option value="Landing page">Landing page</option>
+                                <option value="Application web">Application web</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
                     </div>
+                    <p class="form-contact-hint"><i class="fas fa-info-circle"></i> Renseignez au moins un moyen de
+                        contact (email ou téléphone).</p>
                     <div class="form-group">
-                        <label for="message">Décrivez votre projet</label>
+                        <label for="message">Décrivez votre projet <span class="required">*</span></label>
                         <textarea id="message" name="message"
                             placeholder="Décrivez brièvement votre activité et ce que vous attendez de votre site web..."
                             rows="5" required></textarea>

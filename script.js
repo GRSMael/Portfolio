@@ -182,21 +182,41 @@ document.addEventListener("DOMContentLoaded", () => {
             const btn = form.querySelector('button[type="submit"]');
             const original = btn.innerHTML;
 
-            const data = {
-                from_name: form.querySelector('[name="from_name"]').value.trim(),
-                name: form.querySelector('[name="from_name"]').value.trim(),
-                from_email: form.querySelector('[name="from_email"]').value.trim(),
-                message: form.querySelector('[name="message"]').value.trim(),
-                project_type: form.querySelector('[name="project_type"]')?.value || "",
-                time: new Date().toLocaleString(),
-                reply_to: form.querySelector('[name="from_email"]').value.trim(),
-                title: "Demande de devis — Portfolio Pro",
-            };
+            const fromName = form.querySelector('[name="from_name"]').value.trim();
+            const fromEmail = form.querySelector('[name="from_email"]').value.trim();
+            const phone = form.querySelector('[name="phone"]')?.value.trim() || "";
+            const message = form.querySelector('[name="message"]').value.trim();
+            const projectType = form.querySelector('[name="project_type"]')?.value || "";
 
-            if (!data.from_name || !data.from_email || !data.message) {
-                showToast("Veuillez remplir tous les champs obligatoires", "error");
+            // Validation: name + message required
+            if (!fromName || !message) {
+                showToast("Veuillez remplir votre nom et décrire votre projet.", "error");
                 return;
             }
+
+            // Validation: email OR phone required
+            if (!fromEmail && !phone) {
+                showToast("Renseignez au moins un moyen de contact (email ou téléphone).", "error");
+                return;
+            }
+
+            // Build message with phone included
+            const fullMessage = phone
+                ? `${message}\n\n📞 Téléphone: ${phone}`
+                : message;
+
+            const data = {
+                from_name: fromName,
+                name: fromName,
+                from_email: fromEmail || "non-renseigné@contact.fr",
+                email: fromEmail || "Non renseigné",
+                message: fullMessage,
+                project_type: projectType,
+                phone: phone || "Non renseigné",
+                time: new Date().toLocaleString(),
+                reply_to: fromEmail || "noreply@contact.fr",
+                title: `Devis ${projectType || "Web"} — ${fromName}`,
+            };
 
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
@@ -214,14 +234,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 if (res.status === 200) {
-                    showToast("Demande envoyée ! Je vous réponds sous 24h.");
+                    showToast("Demande envoyée ! Je vous réponds sous 24h. 🎉");
                     form.reset();
                 } else {
-                    throw new Error("Statut inattendu: " + res.status);
+                    throw new Error("Statut: " + res.status);
                 }
             } catch (err) {
                 console.error("Erreur EmailJS:", err);
-                showToast("Erreur d'envoi. Essayez de m'écrire directement à grosa.mael.13@gmail.com", "error");
+                showToast("Erreur d'envoi. Écrivez-moi à grosa.mael.13@gmail.com", "error");
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = original;
