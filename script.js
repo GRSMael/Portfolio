@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             } catch (err) {
                 console.error("Erreur EmailJS:", err);
-                showToast("Erreur d'envoi. Écrivez-moi à grosa.mael.13@gmail.com", "error");
+                showToast("Erreur d'envoi. Écrivez-moi à contact@grosamael.fr", "error");
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = original;
