@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     // ========================
+    // GA4 Events (consent-aware)
+    // ========================
+    function trackEvent(eventName, params) {
+        if (typeof gtag === 'function' && localStorage.getItem('mg_cookie_consent') === 'granted') {
+            gtag('event', eventName, params || {});
+        }
+    }
+
+    // ========================
     // EmailJS
     // ========================
     if (window.emailJsConfig) {
@@ -89,62 +98,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ========================
-    // Portfolio Data
-    // ========================
-    const projects = [
-        {
-            title: "Viet Wok — Restaurant",
-            desc: "Site vitrine coloré pour un restaurant vietnamien. Menu interactif avec photos, design pop et chaleureux, responsive et SEO optimisé.",
-            image: "images/demo-restaurant.png",
-            type: "Site Vitrine",
-            link: "demos/restaurant/index.html",
-        },
-        {
-            title: "Élégance — Salon de Coiffure",
-            desc: "Site élégant pour un salon de coiffure parisien. Galerie photo, avis clients, réservation en ligne, palette crème et dorée.",
-            image: "images/demo-coiffure.png",
-            type: "Site Vitrine",
-            link: "demos/artisan/index.html",
-        },
-        {
-            title: "Claire Martin — Coach",
-            desc: "Landing page de conversion pour une coach. Parcours client en 4 étapes, témoignages, prise de rendez-vous. Taux de conversion +120%.",
-            image: "images/demo-coach.png",
-            type: "Landing Page",
-            link: "demos/landing/index.html",
-        },
-    ];
-
-    function renderPortfolio() {
-        const grid = document.getElementById("portfolioGrid");
-        if (!grid) return;
-        grid.innerHTML = "";
-        projects.forEach((p) => {
-            const card = document.createElement("article");
-            card.className = "portfolio-card";
-            card.innerHTML = `
-        <div class="portfolio-img">
-          <img src="${p.image}" alt="${p.title}" loading="lazy">
-        </div>
-        <div class="portfolio-body">
-          <span class="portfolio-type">${p.type}</span>
-          <h3 class="portfolio-title">${p.title}</h3>
-          <p class="portfolio-desc">${p.desc}</p>
-          <div class="portfolio-footer">
-            <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="portfolio-link">
-              Voir le site <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      `;
-            grid.appendChild(card);
-        });
-    }
-    renderPortfolio();
-
-    // Init reveal AFTER portfolio is rendered
+    // Init reveal
     applyReveal();
+
+    // Track demo clicks
+    document.querySelectorAll('.portfolio-link[data-demo]').forEach(link => {
+        link.addEventListener('click', () => {
+            trackEvent('demo_view', { demo_name: link.dataset.demo });
+        });
+    });
+
+    // Track CTA clicks
+    document.querySelectorAll('.btn-primary, .floating-cta').forEach(btn => {
+        btn.addEventListener('click', () => {
+            trackEvent('cta_click', { cta_text: btn.textContent.trim().slice(0, 50) });
+        });
+    });
 
     // ========================
     // FAQ Accordion
@@ -237,6 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
                 if (res.status === 200) {
+                    trackEvent('form_submit', { form_type: 'contact', project_type: projectType });
                     showToast("Demande envoyée ! Je vous réponds sous 24h. 🎉");
                     form.reset();
                 } else {

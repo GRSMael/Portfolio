@@ -245,6 +245,7 @@
             <strong style="color:#fff">Microsoft Clarity</strong> et
             <strong style="color:#fff">Google Analytics</strong>. Ces outils ne sont activés
             qu'avec votre accord, conformément au RGPD.
+            <a href="/mentions-legales.html#cookies" style="color:#818cf8">En savoir plus</a>
           </p>
         </div>
       </div>
@@ -302,5 +303,28 @@
     }
 
     init();
+
+    // Lien "Gérer les cookies" dans le footer
+    function bindManageCookiesLink() {
+        const link = document.getElementById('manageCookiesLink');
+        if (link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.resetCookieConsent();
+            });
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindManageCookiesLink);
+    } else {
+        bindManageCookiesLink();
+    }
+
+    // Expose pour le lien "Gérer les cookies" dans le footer
+    window.resetCookieConsent = function () {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(STORAGE_KEY + '_date');
+        location.reload();
+    };
 
 })();

@@ -1,0 +1,21 @@
+{
+  "name": "grosamael-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio de Maël Grosa — Concepteur Web Freelance",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "build": "pnpm run build:css && pnpm run build:js && pnpm run build:images",
+    "build:css": "npx lightningcss --minify styles.css -o dist/styles.min.css",
+    "build:js": "npx terser script.js -o dist/script.min.js --compress --mangle",
+    "build:images": "node scripts/convert-images.js",
+    "build:tailwind": "npx tailwindcss -i demos/restaurant/tailwind.css -o demos/restaurant/styles.min.css --minify",
+    "lint": "echo 'No linter configured — add eslint if needed'"
+  },
+  "devDependencies": {
+    "lightningcss-cli": "^1.25.0",
+    "serve": "^14.2.0",
+    "sharp": "^0.33.0",
+    "tailwindcss": "^3.4.0",
+    "terser": "^5.27.0"
+  }
+}

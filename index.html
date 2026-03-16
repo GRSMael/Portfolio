@@ -11,14 +11,27 @@
     <meta property="og:title" content="Maël Grosa — Concepteur Web Freelance">
     <meta property="og:description" content="Sites web professionnels, modernes et sur-mesure. Devis gratuit.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/demo-restaurant.png">
+    <meta property="og:image" content="https://grosamael.fr/images/og-image.jpg">
     <meta property="og:url" content="https://grosamael.fr">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="geo.region" content="FR-PAC">
+    <meta name="geo.placename" content="Marseille">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Maël Grosa">
+    <meta name="twitter:site" content="@grosamael">
+    <meta name="twitter:creator" content="@grosamael">
     <link rel="canonical" href="https://grosamael.fr">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%234f46e5'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>MG</text></svg>">
+    <link rel="dns-prefetch" href="https://cdn.emailjs.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://www.clarity.ms">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -37,11 +50,9 @@
           "url": "https://grosamael.fr",
           "email": "contact@grosamael.fr",
           "jobTitle": "Concepteur Web Freelance",
-          "description": "Développeur web freelance basé en France, spécialisé dans la création de sites internet professionnels, modernes et sur-mesure pour les TPE, startups et indépendants.",
-          "sameAs": [
-            "https://github.com/JLMael",
-            "https://www.linkedin.com/in/ma%C3%ABl-grosa-894698248/"
-          ]
+          "description": "Développeur web freelance basé à Marseille, spécialisé dans la création de sites internet professionnels pour TPE, artisans et indépendants.",
+          "address": { "@type": "PostalAddress", "addressLocality": "Marseille", "addressCountry": "FR" },
+          "sameAs": ["https://github.com/JLMael", "https://www.linkedin.com/in/ma%C3%ABl-grosa-894698248/"]
         },
         {
           "@type": "ProfessionalService",
@@ -49,19 +60,68 @@
           "name": "Maël Grosa — Concepteur Web Freelance",
           "url": "https://grosamael.fr",
           "email": "contact@grosamael.fr",
-          "description": "Création de sites internet professionnels, modernes et sur-mesure : sites vitrines, landing pages et applications web pour TPE, startups et indépendants.",
-          "areaServed": "FR",
+          "telephone": "contact@grosamael.fr",
+          "description": "Création de sites internet professionnels, modernes et sur-mesure : sites vitrines, landing pages et applications web pour TPE, artisans et indépendants à Marseille et partout en France.",
+          "areaServed": [{ "@type": "Country", "name": "FR" }],
           "priceRange": "€€",
           "provider": { "@id": "https://grosamael.fr/#person" },
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Services web",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site Vitrine" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site Vitrine" }, "priceSpecification": { "@type": "PriceSpecification", "price": "450", "priceCurrency": "EUR", "minPrice": "450" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page" }, "priceSpecification": { "@type": "PriceSpecification", "price": "350", "priceCurrency": "EUR", "minPrice": "350" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Application Web" } }
             ]
           }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://grosamael.fr/#website",
+          "url": "https://grosamael.fr",
+          "name": "Maël Grosa — Concepteur Web Freelance",
+          "description": "Portfolio et services de Maël Grosa, concepteur web freelance à Marseille",
+          "publisher": { "@id": "https://grosamael.fr/#person" },
+          "inLanguage": "fr-FR"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://grosamael.fr" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://grosamael.fr/#services" },
+            { "@type": "ListItem", "position": 3, "name": "Réalisations", "item": "https://grosamael.fr/#realisations" },
+            { "@type": "ListItem", "position": 4, "name": "Contact", "item": "https://grosamael.fr/#contact" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Combien coûte un site web ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Le prix dépend de la complexité de votre projet. Un site vitrine simple démarre à quelques centaines d'euros, une landing page optimisée un peu moins. Je vous envoie un devis gratuit et détaillé après notre premier échange, sans engagement de votre part." }
+            },
+            {
+              "@type": "Question",
+              "name": "Combien de temps pour créer mon site ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "En général, comptez 1 à 2 semaines pour un site vitrine et quelques jours pour une landing page. Le délai exact dépend de vos retours et de la complexité. On en discute ensemble dès le départ." }
+            },
+            {
+              "@type": "Question",
+              "name": "Est-ce que je peux modifier mon site moi-même après ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Oui ! Selon vos besoins, je peux intégrer un panneau d'administration simple pour que vous puissiez modifier vos textes, images et contenus sans toucher au code. Sinon, je reste disponible pour effectuer les modifications pour vous." }
+            },
+            {
+              "@type": "Question",
+              "name": "Qu'est-ce qui est inclus dans le prix ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Tout ce qui est nécessaire : le design sur-mesure, le développement, l'optimisation mobile, le référencement de base (SEO), la mise en ligne et un accompagnement post-livraison. L'hébergement et le nom de domaine sont en supplément." }
+            },
+            {
+              "@type": "Question",
+              "name": "Je n'y connais rien en technologie, c'est grave ?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Pas du tout ! La plupart de mes clients ne sont pas techniques. C'est justement mon rôle de m'occuper de toute la partie technique. Vous me décrivez ce que vous voulez, je m'occupe du reste." }
+            }
+          ]
         }
       ]
     }
@@ -117,10 +177,10 @@
                 </div>
                 <div class="hero-visual">
                     <div class="hero-card hero-card-1">
-                        <img src="images/demo-coiffure.png" alt="Site vitrine salon de coiffure" width="800" height="600">
+                        <img src="images/demo-coiffure.png" alt="Exemple site vitrine salon de coiffure créé par Maël Grosa, concepteur web à Marseille" width="800" height="600">
                     </div>
                     <div class="hero-card hero-card-2">
-                        <img src="images/demo-restaurant.png" alt="Site vitrine restaurant" width="800" height="600">
+                        <img src="images/demo-restaurant.png" alt="Exemple site vitrine restaurant créé par Maël Grosa, développeur web freelance" width="800" height="600">
                     </div>
                 </div>
             </div>
@@ -171,7 +231,7 @@
                     <span class="section-tag">Qui suis-je ?</span>
                     <h2 class="section-title">Un interlocuteur unique,<br>de A à Z</h2>
                     <p class="about-text">
-                        Moi c'est <strong>Maël</strong>, développeur web passionné basé en France. Je travaille en
+                        Moi c'est <strong>Maël</strong>, développeur web passionné basé à <strong>Marseille</strong>. Je travaille en
                         <strong>freelance</strong> avec des TPE, des startups et des indépendants qui veulent
                         <strong>une vraie présence en ligne</strong> sans se prendre la tête.
                     </p>
@@ -244,6 +304,7 @@
                         <li><i class="fas fa-check"></i> Formulaire de contact</li>
                         <li><i class="fas fa-check"></i> Optimisé pour Google</li>
                     </ul>
+                    <p class="service-price">À partir de <strong>450 €</strong></p>
                 </div>
                 <div class="service-card featured">
                     <div class="service-badge">Le + demandé</div>
@@ -257,6 +318,7 @@
                         <li><i class="fas fa-check"></i> Intégration formulaire / réservation</li>
                         <li><i class="fas fa-check"></i> Rapide à mettre en ligne</li>
                     </ul>
+                    <p class="service-price">À partir de <strong>350 €</strong></p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
@@ -269,10 +331,19 @@
                         <li><i class="fas fa-check"></i> Base de données sécurisée</li>
                         <li><i class="fas fa-check"></i> Hébergement & maintenance</li>
                     </ul>
+                    <p class="service-price">Tarif sur <strong>devis</strong></p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- CTA intermédiaire -->
+    <div class="cta-interstitiel">
+        <div class="container">
+            <p>Vous avez un projet similaire à l'un de ces exemples ?</p>
+            <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Parlons-en gratuitement</a>
+        </div>
+    </div>
 
     <!-- Réalisations -->
     <section id="realisations" class="portfolio">
@@ -284,11 +355,100 @@
                     exemples.</p>
             </div>
             <div class="portfolio-grid" id="portfolioGrid">
-                <!-- Injected via JS -->
+                <article class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="images/demo-restaurant.png" alt="Site vitrine restaurant vietnamien Viet Wok créé par Maël Grosa, concepteur web freelance à Marseille" loading="lazy" width="800" height="600">
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-type">Site Vitrine</span>
+                        <h3 class="portfolio-title">Viet Wok — Restaurant</h3>
+                        <p class="portfolio-desc">Site vitrine coloré pour un restaurant vietnamien. Menu interactif avec photos, design pop et chaleureux, responsive et SEO optimisé.</p>
+                        <div class="portfolio-footer">
+                            <a href="demos/restaurant/index.html" target="_blank" rel="noopener noreferrer" class="portfolio-link" data-demo="restaurant">
+                                Voir le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="images/demo-coiffure.png" alt="Site vitrine salon de coiffure Élégance Paris créé par Maël Grosa, développeur web freelance" loading="lazy" width="800" height="600">
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-type">Site Vitrine</span>
+                        <h3 class="portfolio-title">Élégance — Salon de Coiffure</h3>
+                        <p class="portfolio-desc">Site élégant pour un salon de coiffure parisien. Galerie photo, avis clients, réservation en ligne, palette crème et dorée.</p>
+                        <div class="portfolio-footer">
+                            <a href="demos/artisan/index.html" target="_blank" rel="noopener noreferrer" class="portfolio-link" data-demo="artisan">
+                                Voir le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="images/demo-coach.png" alt="Landing page coach développement personnel Claire Martin créée par Maël Grosa, création site internet freelance" loading="lazy" width="800" height="600">
+                    </div>
+                    <div class="portfolio-body">
+                        <span class="portfolio-type">Landing Page</span>
+                        <h3 class="portfolio-title">Claire Martin — Coach</h3>
+                        <p class="portfolio-desc">Landing page de conversion pour une coach. Parcours client en 4 étapes, témoignages, prise de rendez-vous. Taux de conversion +120%.</p>
+                        <div class="portfolio-footer">
+                            <a href="demos/landing/index.html" target="_blank" rel="noopener noreferrer" class="portfolio-link" data-demo="landing">
+                                Voir le site <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
+    <!-- Témoignages -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Ce qu'ils en disent</span>
+                <h2 class="section-title">Clients satisfaits</h2>
+                <p class="section-subtitle">Voici ce que mes clients disent de notre collaboration.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>« Maël a créé un site pour ma boutique en 10 jours. Résultat : je suis passée en première page Google en 3 semaines. Je recommande les yeux fermés ! »</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div>
+                            <strong>Sophie M.</strong>
+                            <span>Gérante, boutique d'artisanat</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>« Professionnalisme et réactivité au rendez-vous. Mon site de coaching a transformé ma présence en ligne. Les demandes de rendez-vous ont doublé le premier mois. »</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">TL</div>
+                        <div>
+                            <strong>Thomas L.</strong>
+                            <span>Coach sportif indépendant</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>« Un site magnifique, rapide et qui donne vraiment confiance aux clients. Maël a su parfaitement capturer l'ambiance de notre restaurant. »</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MC</div>
+                        <div>
+                            <strong>Marie-Claire V.</strong>
+                            <span>Restauratrice, Marseille</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- How it works -->
     <section class="process">
@@ -492,6 +652,7 @@
                     <a href="#services">Services</a>
                     <a href="#realisations">Réalisations</a>
                     <a href="#contact">Contact</a>
+                    <a href="mentions-legales.html">Mentions légales</a>
                 </div>
                 <div class="footer-links">
                     <h4>Services</h4>
@@ -510,6 +671,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Maël Grosa — Concepteur Web Freelance. Tous droits réservés.</p>
+                <p><a href="#" id="manageCookiesLink" style="color: inherit; text-decoration: underline; cursor: pointer; font-size: 0.75rem;">Gérer les cookies</a></p>
             </div>
         </div>
     </footer>
