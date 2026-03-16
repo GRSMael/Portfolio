@@ -14,7 +14,7 @@
   "devDependencies": {
     "lightningcss-cli": "^1.25.0",
     "serve": "^14.2.0",
-    "sharp": "^0.33.0",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.0",
     "terser": "^5.27.0"
   }
