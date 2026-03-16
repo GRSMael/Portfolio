@@ -23,11 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function closeMenu() {
         navToggle?.classList.remove("active");
         navMenu?.classList.remove("active");
+        navToggle?.setAttribute("aria-expanded", "false");
     }
 
     navToggle?.addEventListener("click", () => {
         navToggle.classList.toggle("active");
         navMenu.classList.toggle("active");
+        const isOpen = navToggle.classList.contains("active");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
     document.querySelectorAll(".nav-link").forEach((link) =>

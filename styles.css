@@ -36,9 +36,10 @@
     --nav-bg: rgba(255, 255, 255, 0.85);
 }
 
-/* --- Dark Mode (Windows Dark Theme) --- */
+/* --- Dark Mode (OS preference) --- */
+/* Only activates when no manual [data-theme] override is set */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --bg: #111114;
         --bg-alt: #1a1a1f;
         --bg-card: #1e1e23;
@@ -75,7 +76,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 70px;
 }
 
 body {
@@ -394,6 +395,13 @@ img {
 .btn-outline:hover {
     border-color: var(--accent);
     color: var(--accent);
+}
+
+/* --- Focus visible (keyboard navigation) --- */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .btn-submit {
@@ -1534,5 +1542,23 @@ section {
 
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+    .hero-card-1,
+    .hero-card-2 {
+        animation: none;
+    }
+
+    .badge-dot {
+        animation: none;
+    }
+
+    .reveal-el {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }
