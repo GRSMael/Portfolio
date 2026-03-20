@@ -1670,7 +1670,8 @@ section {
         top: 70px;
         left: 0;
         right: 0;
-        bottom: 0;
+        height: calc(100vh - 70px);
+        height: calc(100dvh - 70px);
         background: var(--nav-bg);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
