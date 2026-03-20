@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devis Site Web Gratuit — Maël Grosa, Concepteur Web Freelance</title>
-    <meta name="description" content="Demandez votre devis gratuit pour la création de votre site internet professionnel. Sites vitrines à partir de 450€, landing pages dès 350€. Réponse sous 24h.">
+    <meta name="description" content="Demandez votre devis gratuit pour la création de votre site internet professionnel. Sites vitrines à partir de 400€, landing pages dès 250€. Réponse sous 24h.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://grosamael.fr/devis.html">
     <meta property="og:title" content="Devis Site Web Gratuit — Maël Grosa">
@@ -19,17 +19,19 @@
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%234f46e5'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>MG</text></svg>">
 
-    <!-- Consentement RGPD — doit être chargé en premier -->
-    <script src="cookie-consent.js"></script>
+    <!-- Consentement RGPD -->
+    <script src="cookie-consent.js" defer></script>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="alternate" hreflang="fr" href="https://grosamael.fr/devis.html">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -41,6 +43,31 @@
         "url": "https://grosamael.fr/devis.html",
         "author": { "@type": "Person", "name": "Maël Grosa", "url": "https://grosamael.fr" },
         "potentialAction": { "@type": "CommunicateAction", "target": "https://grosamael.fr/devis.html#devis", "name": "Demander un devis gratuit" }
+    }
+    </script>
+
+    <!-- JSON-LD FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Combien coûte un site web ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Un site vitrine démarre à 400€, une landing page à 250€. Je vous envoie un devis précis après notre premier échange, sans engagement." }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien de temps pour avoir mon site ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "1 à 2 semaines pour un site vitrine, quelques jours pour une landing page. Le délai exact dépend de la complexité et de vos retours." }
+            },
+            {
+                "@type": "Question",
+                "name": "Je n'y connais rien en technique, c'est un problème ?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Pas du tout ! Je m'occupe de tout de A à Z. Vous me décrivez votre activité, je fais le reste." }
+            }
+        ]
     }
     </script>
 
@@ -87,13 +114,14 @@
 </head>
 
 <body>
+    <a href="#devis" class="skip-link">Aller au contenu principal</a>
 
     <!-- Mini-header -->
     <header class="devis-header">
         <a href="index.html" class="nav-logo">Maël Grosa<span class="nav-dot">.</span></a>
         <div class="devis-header-right">
             <span class="devis-badge"><i class="fas fa-check"></i> Devis gratuit en 24h</span>
-            <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème"><i class="fas fa-moon" id="themeIcon"></i></button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre"><i class="fas fa-moon" id="themeIcon"></i></button>
         </div>
     </header>
 
@@ -185,7 +213,7 @@
                         <li><i class="fas fa-check"></i> SEO</li>
                         <li><i class="fas fa-check"></i> Mise en ligne</li>
                     </ul>
-                    <p class="service-price">À partir de <strong>450 €</strong></p>
+                    <p class="service-price">À partir de <strong>400 €</strong></p>
                     <a href="#devis" class="btn btn-primary" style="width:100%; margin-top:1rem;">Demander un devis →</a>
                 </div>
                 <!-- Landing Page (featured) -->
@@ -201,7 +229,7 @@
                         <li><i class="fas fa-check"></i> Mise en ligne rapide</li>
                         <li><i class="fas fa-check"></i> Idéal campagnes pub</li>
                     </ul>
-                    <p class="service-price">À partir de <strong>350 €</strong></p>
+                    <p class="service-price"><span class="service-price-old" style="text-decoration:line-through;color:#9ca3af;font-size:0.85rem;margin-right:0.4rem;">350 €</span> À partir de <strong>250 €</strong></p>
                     <a href="#devis" class="btn btn-primary" style="width:100%; margin-top:1rem;">Demander un devis →</a>
                 </div>
                 <!-- Application Web -->
@@ -366,29 +394,29 @@
             </div>
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" id="faq-btn-0" aria-expanded="false" aria-controls="faq-answer-0">
                         <span>Combien coûte un site web ?</span>
                         <i class="fas fa-plus"></i>
                     </button>
-                    <div class="faq-answer">
-                        <p>Un site vitrine démarre à 450€, une landing page à 350€. Je vous envoie un devis précis après notre premier échange, sans engagement.</p>
+                    <div class="faq-answer" id="faq-answer-0" role="region" aria-labelledby="faq-btn-0">
+                        <p>Un site vitrine démarre à 400€, une landing page à 250€. Je vous envoie un devis précis après notre premier échange, sans engagement.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" id="faq-btn-1" aria-expanded="false" aria-controls="faq-answer-1">
                         <span>Combien de temps pour avoir mon site ?</span>
                         <i class="fas fa-plus"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1">
                         <p>1 à 2 semaines pour un site vitrine, quelques jours pour une landing page. Le délai exact dépend de la complexité et de vos retours.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
+                    <button class="faq-question" id="faq-btn-2" aria-expanded="false" aria-controls="faq-answer-2">
                         <span>Je n'y connais rien en technique, c'est un problème ?</span>
                         <i class="fas fa-plus"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
                         <p>Pas du tout ! Je m'occupe de tout de A à Z. Vous me décrivez votre activité, je fais le reste.</p>
                     </div>
                 </div>
@@ -397,7 +425,7 @@
     </section>
 
     <!-- Toast -->
-    <div class="toast-notification" id="toast"><i class="fas fa-check-circle"></i><span>Message envoyé !</span></div>
+    <div class="toast-notification" id="toast" role="alert" aria-live="assertive"><i class="fas fa-check-circle"></i><span>Message envoyé !</span></div>
 
     <!-- Mini-footer -->
     <footer class="devis-footer">
@@ -407,7 +435,7 @@
     </footer>
 
     <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
     <script>
     window.emailJsConfig = {
         publicKey: 'su0lJTd4FqCKmAX_n',
@@ -415,125 +443,34 @@
         templateId: 'template_dng3hxt'
     };
     </script>
-
-    <script>
+    <script src="shared.js" defer></script>
+    <script defer>
     document.addEventListener('DOMContentLoaded', () => {
-        // EmailJS init
-        if (window.emailJsConfig) emailjs.init(window.emailJsConfig.publicKey);
+        const P = window.Portfolio;
 
-        // Dark mode
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        function setTheme(t) {
-            document.documentElement.setAttribute('data-theme', t);
-            localStorage.setItem('theme', t);
-            if (themeIcon) themeIcon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        }
-        const saved = localStorage.getItem('theme');
-        setTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-        if (themeToggle) themeToggle.addEventListener('click', () => {
-            setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
-        });
+        // Theme, FAQ, smooth scroll, form (via shared.js)
+        P.initTheme();
+        P.initFaqAccordion();
+        P.initSmoothScroll();
+        P.initContactForm('devis-form', 'Google Ads');
+        P.initCookieBannerObserver();
 
         // Manage cookies link
         const mc = document.getElementById('manageCookiesLink');
         if (mc) mc.addEventListener('click', e => { e.preventDefault(); if (window.resetCookieConsent) window.resetCookieConsent(); });
 
-        // Smooth scroll for #devis and #tarifs CTAs
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const t = document.querySelector(a.getAttribute('href'));
-                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // FAQ accordion
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.closest('.faq-item');
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-
-        // Toast helper
-        function showToast(msg, type = 'success') {
-            const toast = document.getElementById('toast');
-            const span = toast.querySelector('span');
-            const icon = toast.querySelector('i');
-            span.textContent = msg;
-            if (type === 'error') { toast.style.background = '#ef4444'; icon.className = 'fas fa-exclamation-circle'; }
-            else { toast.style.background = ''; icon.className = 'fas fa-check-circle'; }
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 4000);
-        }
-
-        // GA4 helper (consent-aware)
-        function trackEvent(name, params) {
-            if (typeof gtag === 'function' && localStorage.getItem('mg_cookie_consent') === 'granted') {
-                gtag('event', name, params || {});
-            }
-        }
-
-        // Form submission
+        // Google Ads conversion tracking (post-submit hook)
         const form = document.getElementById('devis-form');
         if (form) {
-            form.addEventListener('submit', async e => {
-                e.preventDefault();
-                const btn = form.querySelector('button[type="submit"]');
-                const original = btn.innerHTML;
-                const fromName = form.querySelector('[name="from_name"]').value.trim();
-                const fromEmail = form.querySelector('[name="from_email"]').value.trim();
-                const phone = form.querySelector('[name="phone"]')?.value.trim() || '';
-                const message = form.querySelector('[name="message"]').value.trim();
-                const projectType = form.querySelector('[name="project_type"]')?.value || '';
-
-                if (!fromName || !message) { showToast('Veuillez remplir votre nom et décrire votre projet.', 'error'); return; }
-                if (!fromEmail && !phone) { showToast('Renseignez au moins un moyen de contact (email ou téléphone).', 'error'); return; }
-
-                const fullMessage = phone ? `${message}\n\n📞 Téléphone: ${phone}` : message;
-                const data = {
-                    from_name: fromName, name: fromName,
-                    from_email: fromEmail || 'non-renseigné@contact.fr',
-                    email: fromEmail || 'Non renseigné',
-                    message: fullMessage,
-                    project_type: projectType,
-                    phone: phone || 'Non renseigné',
-                    time: new Date().toLocaleString(),
-                    reply_to: fromEmail || 'noreply@contact.fr',
-                    title: `Devis ${projectType || 'Web'} — ${fromName} [Google Ads]`,
-                };
-
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-
-                try {
-                    if (!window.emailJsConfig) throw new Error('EmailJS non configuré');
-                    const res = await emailjs.send(window.emailJsConfig.serviceId, window.emailJsConfig.templateId, data, window.emailJsConfig.publicKey);
-                    if (res.status === 200) {
-                        showToast('Demande envoyée ! Je vous réponds sous 24h. 🎉');
-                        form.reset();
-                        // GA4 — distinguer leads Google Ads
-                        trackEvent('form_submit', { form_type: 'devis_ads', project_type: projectType });
-                        // Google Ads conversion tracking
-                        // TODO: remplacer AW-XXXXXXXXX/XXXXXXX par l'ID de conversion Google Ads
-                        if (typeof gtag === 'function' && localStorage.getItem('mg_cookie_consent') === 'granted') {
-                            gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX/XXXXXXX' });
-                        }
-                    } else { throw new Error('Statut: ' + res.status); }
-                } catch (err) {
-                    console.error('Erreur EmailJS:', err);
-                    showToast('Erreur d\'envoi. Écrivez-moi à contact@grosamael.fr', 'error');
-                } finally {
-                    btn.disabled = false;
-                    btn.innerHTML = original;
+            form.addEventListener('submit', () => {
+                // TODO: remplacer AW-XXXXXXXXX/XXXXXXX par l'ID de conversion Google Ads
+                if (typeof gtag === 'function' && localStorage.getItem('mg_cookie_consent') === 'granted') {
+                    gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX/XXXXXXX' });
                 }
             });
         }
 
-        // Scroll reveal (léger)
+        // Scroll reveal
         const revealObserver = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
         }, { threshold: 0.05 });

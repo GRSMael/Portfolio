@@ -1,18 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ========================
-    // GA4 Events (consent-aware)
-    // ========================
-    function trackEvent(eventName, params) {
-        if (typeof gtag === 'function' && localStorage.getItem('mg_cookie_consent') === 'granted') {
-            gtag('event', eventName, params || {});
-        }
-    }
+    const P = window.Portfolio;
 
     // ========================
-    // EmailJS
+    // Theme (via shared.js)
     // ========================
-    if (window.emailJsConfig) {
-        emailjs.init(window.emailJsConfig.publicKey);
+    P.initTheme();
+    P.initServiceTabs();
+    P.initHeroTyping();
+
+    // ========================
+    // Hero scroll indicator click
+    // ========================
+    const scrollIndicator = document.querySelector(".hero-scroll-indicator");
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener("click", () => {
+            const nextSection = document.querySelector(".hero + section, .hero + .trust");
+            if (nextSection) nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
     }
 
     // ========================
@@ -33,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navToggle?.classList.remove("active");
         navMenu?.classList.remove("active");
         navToggle?.setAttribute("aria-expanded", "false");
+        navToggle?.focus();
     }
 
     navToggle?.addEventListener("click", () => {
@@ -51,90 +56,118 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ========================
-    // Scroll reveal (fixed — no blank spaces)
+    // Focus trap (mobile menu)
+    // ========================
+    document.addEventListener("keydown", (e) => {
+        if (!navMenu?.classList.contains("active")) return;
+        if (e.key !== "Tab") return;
+
+        const focusable = [
+            navToggle,
+            ...navMenu.querySelectorAll("a, button"),
+        ].filter(Boolean);
+
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            }
+        } else {
+            if (document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    });
+
+    // ========================
+    // Scroll reveal
     // ========================
     const revealObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
-                    revealObserver.unobserve(entry.target); // stop watching once revealed
+                    revealObserver.unobserve(entry.target);
                 }
             });
         },
         { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
     );
 
-    function applyReveal() {
-        const selectors = [
-            ".trust-item",
-            ".about-content",
-            ".about-values",
-            ".value-card",
-            ".service-card",
-            ".portfolio-card",
-            ".testimonial-card",
-            ".process-step",
-            ".faq-item",
-            ".contact-form",
-            ".contact-aside",
-            ".aside-card",
-        ];
+    const selectors = [
+        ".trust-item",
+        ".about-content",
+        ".about-values",
+        ".value-card",
+        ".service-card",
+        ".portfolio-card",
+        ".testimonial-card",
+        ".process-step",
+        ".faq-item",
+        ".contact-form",
+        ".contact-aside",
+        ".aside-card",
+    ];
 
-        const els = document.querySelectorAll(selectors.join(", "));
-        let delay = 0;
-        els.forEach((el) => {
-            el.classList.add("reveal-el");
-            el.style.transitionDelay = `${delay}s`;
-            delay = Math.min(delay + 0.04, 0.2);
-            revealObserver.observe(el);
-        });
+    let delay = 0;
+    document.querySelectorAll(selectors.join(", ")).forEach((el) => {
+        el.classList.add("reveal-el");
+        el.style.transitionDelay = `${delay}s`;
+        delay = Math.min(delay + 0.04, 0.2);
+        revealObserver.observe(el);
+    });
 
-        // Section headers fade immediately (no blank space effect)
-        document.querySelectorAll(".section-header").forEach((header) => {
-            header.classList.add("reveal-el");
-            header.style.transitionDelay = "0s";
-            revealObserver.observe(header);
-        });
+    document.querySelectorAll(".section-header").forEach((header) => {
+        header.classList.add("reveal-el");
+        header.style.transitionDelay = "0s";
+        revealObserver.observe(header);
+    });
+
+    // ========================
+    // Lazy hero card animations
+    // ========================
+    const heroVisual = document.querySelector(".hero-visual");
+    if (heroVisual) {
+        const heroObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    heroVisual.classList.toggle("hero-card-animated", entry.isIntersecting);
+                });
+            },
+            { threshold: 0.1 }
+        );
+        heroObserver.observe(heroVisual);
     }
 
-    // Init reveal
-    applyReveal();
-
+    // ========================
     // Track demo clicks
-    document.querySelectorAll('.portfolio-link[data-demo]').forEach(link => {
+    // ========================
+    document.querySelectorAll('.portfolio-link[data-demo]').forEach((link) => {
         link.addEventListener('click', () => {
-            trackEvent('demo_view', { demo_name: link.dataset.demo });
+            P.trackEvent('demo_view', { demo_name: link.dataset.demo });
         });
     });
 
     // Track CTA clicks
-    document.querySelectorAll('.btn-primary, .floating-cta').forEach(btn => {
+    document.querySelectorAll('.btn-primary, .floating-cta').forEach((btn) => {
         btn.addEventListener('click', () => {
-            trackEvent('cta_click', { cta_text: btn.textContent.trim().slice(0, 50) });
+            P.trackEvent('cta_click', { cta_text: btn.textContent.trim().slice(0, 50) });
         });
     });
 
     // ========================
-    // FAQ Accordion
+    // FAQ Accordion (via shared.js — handles ARIA)
     // ========================
-    document.querySelectorAll(".faq-question").forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const item = btn.closest(".faq-item");
-            const isActive = item.classList.contains("active");
-
-            // Close all
-            document.querySelectorAll(".faq-item").forEach((faq) =>
-                faq.classList.remove("active")
-            );
-
-            // Toggle current
-            if (!isActive) item.classList.add("active");
-        });
-    });
+    P.initFaqAccordion();
 
     // ========================
-    // Floating CTA (show after scrolling past hero)
+    // Floating CTA
     // ========================
     const floatingCta = document.getElementById("floatingCta");
     if (floatingCta) {
@@ -144,117 +177,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ========================
-    // Contact form
+    // Contact form (via shared.js — handles validation + ARIA)
     // ========================
-    const form = document.getElementById("contact-form");
-
-    if (form) {
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button[type="submit"]');
-            const original = btn.innerHTML;
-
-            const fromName = form.querySelector('[name="from_name"]').value.trim();
-            const fromEmail = form.querySelector('[name="from_email"]').value.trim();
-            const phone = form.querySelector('[name="phone"]')?.value.trim() || "";
-            const message = form.querySelector('[name="message"]').value.trim();
-            const projectType = form.querySelector('[name="project_type"]')?.value || "";
-
-            // Validation: name + message required
-            if (!fromName || !message) {
-                showToast("Veuillez remplir votre nom et décrire votre projet.", "error");
-                return;
-            }
-
-            // Validation: email OR phone required
-            if (!fromEmail && !phone) {
-                showToast("Renseignez au moins un moyen de contact (email ou téléphone).", "error");
-                return;
-            }
-
-            // Build message with phone included
-            const fullMessage = phone
-                ? `${message}\n\n📞 Téléphone: ${phone}`
-                : message;
-
-            const data = {
-                from_name: fromName,
-                name: fromName,
-                from_email: fromEmail || "non-renseigné@contact.fr",
-                email: fromEmail || "Non renseigné",
-                message: fullMessage,
-                project_type: projectType,
-                phone: phone || "Non renseigné",
-                time: new Date().toLocaleString(),
-                reply_to: fromEmail || "noreply@contact.fr",
-                title: `Devis ${projectType || "Web"} — ${fromName}`,
-            };
-
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-
-            try {
-                if (!window.emailJsConfig) {
-                    throw new Error("EmailJS non configuré");
-                }
-
-                const res = await emailjs.send(
-                    window.emailJsConfig.serviceId,
-                    window.emailJsConfig.templateId,
-                    data,
-                    window.emailJsConfig.publicKey
-                );
-
-                if (res.status === 200) {
-                    trackEvent('form_submit', { form_type: 'contact', project_type: projectType });
-                    showToast("Demande envoyée ! Je vous réponds sous 24h. 🎉");
-                    form.reset();
-                } else {
-                    throw new Error("Statut: " + res.status);
-                }
-            } catch (err) {
-                console.error("Erreur EmailJS:", err);
-                showToast("Erreur d'envoi. Écrivez-moi à contact@grosamael.fr", "error");
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = original;
-            }
-        });
-    }
+    P.initContactForm('contact-form', null);
 
     // ========================
-    // Toast
+    // Smooth scroll (via shared.js)
     // ========================
-    function showToast(message, type = "success") {
-        const toast = document.getElementById("toast");
-        const span = toast.querySelector("span");
-        const icon = toast.querySelector("i");
-        span.textContent = message;
-
-        if (type === "error") {
-            toast.style.background = "#ef4444";
-            icon.className = "fas fa-exclamation-circle";
-        } else {
-            toast.style.background = "";
-            icon.className = "fas fa-check-circle";
-        }
-
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 4000);
-    }
-
-    // ========================
-    // Smooth scroll
-    // ========================
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-        a.addEventListener("click", function (e) {
-            e.preventDefault();
-            const href = this.getAttribute("href");
-            if (href === "#") return;
-            const target = document.querySelector(href);
-            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-    });
+    P.initSmoothScroll();
 
     // ========================
     // Animated counters
@@ -290,37 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (statsSection) counterObserver.observe(statsSection);
 
     // ========================
-    // Dark mode toggle
+    // Cookie banner CTA collision (via shared.js)
     // ========================
-    const themeToggle = document.getElementById("themeToggle");
-    const themeIcon = document.getElementById("themeIcon");
-
-    function getPreferredTheme() {
-        const saved = localStorage.getItem("theme");
-        if (saved) return saved;
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-
-    function setTheme(theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-        if (themeIcon) {
-            themeIcon.className = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
-        }
-    }
-
-    setTheme(getPreferredTheme());
-
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            const current = document.documentElement.getAttribute("data-theme");
-            setTheme(current === "dark" ? "light" : "dark");
-        });
-    }
-
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-        if (!localStorage.getItem("theme")) {
-            setTheme(e.matches ? "dark" : "light");
-        }
-    });
+    P.initCookieBannerObserver();
 });
