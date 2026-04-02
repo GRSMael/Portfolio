@@ -6,14 +6,22 @@
     <title>Mentions légales — Maël Grosa</title>
     <meta name="description" content="Mentions légales et politique de confidentialité du site grosamael.fr">
     <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Mentions légales — Maël Grosa">
+    <meta property="og:description" content="Mentions légales et politique de confidentialité du site grosamael.fr">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://grosamael.fr/mentions-legales.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Maël Grosa — Web & Marketing Digital">
+    <meta name="twitter:card" content="summary">
     <link rel="canonical" href="https://grosamael.fr/mentions-legales.html">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%234f46e5'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>MG</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="alternate" hreflang="fr" href="https://grosamael.fr/mentions-legales.html">
     <script src="cookie-consent.js" defer></script>
     <style>
         .legal-page { max-width: 800px; margin: 0 auto; padding: 100px 20px 60px; }
@@ -41,16 +49,18 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <nav class="navbar" id="navbar" style="background: var(--nav-bg); border-bottom: 1px solid var(--border);">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Maël Grosa<span class="nav-dot">.</span></a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+            <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
         </div>
     </nav>
 
-    <main class="legal-page">
+    <main class="legal-page" id="main-content">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
 
         <h1>Mentions légales</h1>
@@ -62,6 +72,7 @@
             <strong>Maël Grosa</strong><br>
             Concepteur Web Freelance — Micro-entreprise<br>
             Marseille, France<br>
+            <!-- TODO: Remplacer [SIRET] par le vrai numéro -->
             SIRET : [SIRET]<br>
             Email : <a href="mailto:contact@grosamael.fr">contact@grosamael.fr</a><br>
             Site web : <a href="https://grosamael.fr">grosamael.fr</a><br>
@@ -206,19 +217,18 @@
         if (saved) document.documentElement.setAttribute('data-theme', saved);
         const toggle = document.getElementById('themeToggle');
         const icon = document.getElementById('themeIcon');
+        function updateThemeUI(theme) {
+            if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            if (toggle) toggle.setAttribute('aria-label', theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre');
+        }
+        updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
         if (toggle) toggle.addEventListener('click', () => {
             const cur = document.documentElement.getAttribute('data-theme');
             const next = cur === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('theme', next);
-            if (icon) icon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            updateThemeUI(next);
         });
-        // Gérer les cookies
-        function resetCookieConsent() {
-            localStorage.removeItem('mg_cookie_consent');
-            localStorage.removeItem('mg_cookie_consent_date');
-            window.location.reload();
-        }
     </script>
 </body>
 </html>
