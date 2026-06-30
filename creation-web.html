@@ -55,6 +55,12 @@
     </script>
 
     <script src="cookie-consent.js" defer></script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://grosamael.fr/"},{"@type":"ListItem","position":2,"name":"Création web","item":"https://grosamael.fr/creation-web.html"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte un site web ?","acceptedAnswer":{"@type":"Answer","text":"Un site vitrine démarre à 400 €, une landing page à 250 €. Le prix final dépend du nombre de pages et des fonctionnalités. Je vous donne un devis clair et fixe avant de commencer, sans surprise."}},{"@type":"Question","name":"Combien de temps pour créer mon site ?","acceptedAnswer":{"@type":"Answer","text":"Comptez 1 à 2 semaines pour un site vitrine, un peu plus pour une application. Le délai dépend surtout de la rapidité avec laquelle vous me transmettez vos contenus (textes, photos, logo)."}},{"@type":"Question","name":"Je n'y connais rien en technique, c'est grave ?","acceptedAnswer":{"@type":"Answer","text":"Pas du tout, c'est mon métier. Vous n'avez qu'un seul interlocuteur (moi), et je m'occupe de tout : conception, design, mise en ligne, hébergement."}},{"@type":"Question","name":"Le site m'appartient-il vraiment ?","acceptedAnswer":{"@type":"Answer","text":"Oui, à 100 %. Le site, le nom de domaine et les contenus sont à vous, vous restez libre de le faire évoluer où vous voulez."}}]}
+    </script>
 </head>
 
 <body>
@@ -85,7 +91,11 @@
         <!-- Hero de page -->
         <section class="page-hero">
             <div class="container">
-                <a href="index.html" class="page-back"><i class="fas fa-arrow-left"></i> Accueil</a>
+                <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                    <a href="index.html">Accueil</a>
+                    <span class="sep">/</span>
+                    <span aria-current="page">Création web</span>
+                </nav>
                 <span class="section-tag">Création web</span>
                 <h1 class="page-title">Création de site web</h1>
                 <p class="page-lead">Un site, c'est votre meilleur commercial, disponible 24h/24. Je conçois des sites
@@ -204,6 +214,30 @@
                         <summary>Le site m'appartient-il vraiment ?</summary>
                         <div class="faq-a">Oui, à 100 %. Le site, le nom de domaine et les contenus sont à vous, vous restez libre de le faire évoluer où vous voulez.</div>
                     </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cocon : autres expertises -->
+        <section class="related">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Mes autres expertises</span>
+                    <h2 class="section-title">Un besoin plus large ?</h2>
+                </div>
+                <div class="related-grid">
+                    <a href="marketing-digital.html" class="related-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Marketing digital & acquisition</h3>
+                        <p>SEO, Google Ads, Social Ads et automatisation pour attirer plus de clients.</p>
+                        <span class="related-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="informatique.html" class="related-card">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Informatique & matériel</h3>
+                        <p>Montage, réparation de PC et achat-revente de matériel informatique en tout genre.</p>
+                        <span class="related-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
                 </div>
             </div>
         </section>

@@ -2065,3 +2065,98 @@ section {
     color: var(--text-muted);
     line-height: 1.7;
 }
+
+/* --- Cocon : autres expertises (maillage interne) --- */
+.related {
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--border);
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.related-card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.related-card > i {
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 0.85rem;
+    display: block;
+}
+
+.related-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--text-heading);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.related-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.related-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: gap 0.25s ease;
+}
+
+.related-card:hover .related-link {
+    gap: 0.7rem;
+}
+
+/* --- Fil d'Ariane --- */
+.breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.breadcrumb a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--accent);
+}
+
+.breadcrumb .sep {
+    color: var(--text-light);
+}
+
+.breadcrumb [aria-current] {
+    color: var(--accent);
+}

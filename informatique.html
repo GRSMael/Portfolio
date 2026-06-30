@@ -55,6 +55,12 @@
     </script>
 
     <script src="cookie-consent.js" defer></script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://grosamael.fr/"},{"@type":"ListItem","position":2,"name":"Informatique","item":"https://grosamael.fr/informatique.html"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Vous vous déplacez ?","acceptedAnswer":{"@type":"Answer","text":"Oui, sur Marseille et alentours. Pour les petites interventions, on peut aussi voir ensemble à distance."}},{"@type":"Question","name":"Mon PC est vieux, ça vaut le coup de le réparer ?","acceptedAnswer":{"@type":"Answer","text":"Je vous le dis honnêtement après diagnostic. Parfois un simple nettoyage ou un SSD suffit à lui donner une seconde vie ; parfois mieux vaut investir ailleurs."}},{"@type":"Question","name":"Vous reprenez le matériel d'occasion ?","acceptedAnswer":{"@type":"Answer","text":"Oui, j'achète et je revends du matériel en tout genre. Envoyez-moi ce que vous avez (modèle, état, photos) et je vous fais une proposition."}}]}
+    </script>
 </head>
 
 <body>
@@ -85,7 +91,11 @@
         <!-- Hero de page -->
         <section class="page-hero">
             <div class="container">
-                <a href="index.html" class="page-back"><i class="fas fa-arrow-left"></i> Accueil</a>
+                <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                    <a href="index.html">Accueil</a>
+                    <span class="sep">/</span>
+                    <span aria-current="page">Informatique</span>
+                </nav>
                 <span class="section-tag">Informatique</span>
                 <h1 class="page-title">Informatique &amp; matériel</h1>
                 <p class="page-lead">Un PC lent, en panne, ou un nouveau setup à monter ? Je m'occupe de tout le
@@ -168,6 +178,30 @@
                         <summary>Vous reprenez le matériel d'occasion ?</summary>
                         <div class="faq-a">Oui, j'achète et je revends du matériel en tout genre. Envoyez-moi ce que vous avez (modèle, état, photos) et je vous fais une proposition.</div>
                     </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cocon : autres expertises -->
+        <section class="related">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Mes autres expertises</span>
+                    <h2 class="section-title">Un besoin plus large ?</h2>
+                </div>
+                <div class="related-grid">
+                    <a href="creation-web.html" class="related-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Création de site web</h3>
+                        <p>Sites vitrines, landing pages et applications web sur-mesure, pensés pour convertir.</p>
+                        <span class="related-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="marketing-digital.html" class="related-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Marketing digital & acquisition</h3>
+                        <p>SEO, Google Ads, Social Ads et automatisation pour attirer plus de clients.</p>
+                        <span class="related-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
                 </div>
             </div>
         </section>

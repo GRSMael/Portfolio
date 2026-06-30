@@ -55,6 +55,12 @@
     </script>
 
     <script src="cookie-consent.js" defer></script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://grosamael.fr/"},{"@type":"ListItem","position":2,"name":"Marketing digital","item":"https://grosamael.fr/marketing-digital.html"}]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Le SEO, ça prend combien de temps ?","acceptedAnswer":{"@type":"Answer","text":"Le référencement naturel est un travail de fond : les premiers effets se voient en général sous 2 à 3 mois, et ça se renforce avec le temps. Contrairement à la pub, le trafic continue sans payer chaque clic."}},{"@type":"Question","name":"Quel budget prévoir pour Google ou Social Ads ?","acceptedAnswer":{"@type":"Answer","text":"Tout dépend de votre marché, mais on peut démarrer dès quelques centaines d'euros par mois de budget pub. Je vous aide à le dimensionner et j'optimise en continu pour que chaque euro rapporte le maximum."}},{"@type":"Question","name":"Vous garantissez des résultats ?","acceptedAnswer":{"@type":"Answer","text":"Personne de sérieux ne peut garantir une position numéro 1 sur Google. Ce que je garantis : une stratégie claire, un suivi transparent des chiffres et une optimisation permanente vers vos objectifs."}},{"@type":"Question","name":"Pourquoi N8N ?","acceptedAnswer":{"@type":"Answer","text":"Parce qu'une fois l'automatisation en place, c'est simple d'accès : vous gardez la main dessus. N8N reste lisible et modifiable, donc vous pouvez consulter et faire évoluer vos automatisations vous-même."}}]}
+    </script>
 </head>
 
 <body>
@@ -85,7 +91,11 @@
         <!-- Hero de page -->
         <section class="page-hero">
             <div class="container">
-                <a href="index.html" class="page-back"><i class="fas fa-arrow-left"></i> Accueil</a>
+                <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                    <a href="index.html">Accueil</a>
+                    <span class="sep">/</span>
+                    <span aria-current="page">Marketing digital</span>
+                </nav>
                 <span class="section-tag">Marketing digital</span>
                 <h1 class="page-title">Marketing digital &amp; acquisition</h1>
                 <p class="page-lead">Un beau site ne sert à rien si personne ne le voit. J'attire un
@@ -220,6 +230,30 @@
                         <summary>Pourquoi N8N ?</summary>
                         <div class="faq-a">Parce qu'une fois l'automatisation en place, c'est simple d'accès : vous gardez la main dessus. Là où certains outils vous enferment, N8N reste lisible et modifiable, donc vous pouvez consulter, ajuster et faire évoluer vos automatisations vous-même, sans dépendre de moi en permanence.</div>
                     </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cocon : autres expertises -->
+        <section class="related">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Mes autres expertises</span>
+                    <h2 class="section-title">Un besoin plus large ?</h2>
+                </div>
+                <div class="related-grid">
+                    <a href="creation-web.html" class="related-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Création de site web</h3>
+                        <p>Sites vitrines, landing pages et applications web sur-mesure, pensés pour convertir.</p>
+                        <span class="related-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
+                    <a href="informatique.html" class="related-card">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Informatique & matériel</h3>
+                        <p>Montage, réparation de PC et achat-revente de matériel informatique en tout genre.</p>
+                        <span class="related-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                    </a>
                 </div>
             </div>
         </section>
