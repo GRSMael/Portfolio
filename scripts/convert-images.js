@@ -19,6 +19,10 @@ async function main() {
         if (!fs.existsSync(input)) { console.warn(`Skipping ${png} (not found)`); continue; }
         await sharp(input).webp({ quality: 85 }).toFile(output);
         console.log(`✓ ${png} → ${png.replace('.png', '.webp')}`);
+        // AVIF generation
+        const avifOutput = path.join(IMAGES_DIR, png.replace('.png', '.avif'));
+        await sharp(input).avif({ quality: 70 }).toFile(avifOutput);
+        console.log(`✓ ${png} → ${png.replace('.png', '.avif')}`);
     }
 
     // 2. Générer l'icône PWA (192x192 et 512x512) — carré indigo arrondi avec "MG"

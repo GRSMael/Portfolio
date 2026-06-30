@@ -51,8 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener("click", closeMenu)
     );
 
+    let resizeTimer;
     window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) closeMenu();
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 768) closeMenu();
+        }, 150);
     });
 
     // ========================
@@ -158,13 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.btn-primary, .floating-cta').forEach((btn) => {
         btn.addEventListener('click', () => {
             P.trackEvent('cta_click', { cta_text: btn.textContent.trim().slice(0, 50) });
-        });
-    });
-
-    // Track phone clicks
-    document.querySelectorAll('[data-phone-link]').forEach((link) => {
-        link.addEventListener('click', () => {
-            P.trackEvent('phone_click', { source: 'portfolio' });
         });
     });
 

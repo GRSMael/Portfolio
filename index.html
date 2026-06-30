@@ -32,11 +32,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous"></noscript>
 
     <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css">
-    <meta name="theme-color" content="#4f46e5">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="manifest" href="/manifest.json">
     <link rel="alternate" hreflang="fr" href="https://grosamael.fr">
 
     <!-- JSON-LD Structured Data -->
@@ -167,8 +169,54 @@
         </div>
     </nav>
 
-    <!-- Trust bar (above hero for immediate credibility) -->
-    <section class="trust trust-compact" aria-label="Engagements & qualité">
+    <!-- Hero -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Disponible pour de nouveaux projets
+                    </div>
+                    <h1>Je crée des sites web qui <em class="hero-typed" aria-label="convertissent, génèrent des leads, dominent Google, automatisent votre croissance"></em></h1>
+                    <p class="hero-subtitle">
+                        Concepteur web & marketing digital freelance à <strong>Marseille</strong>.
+                        Je conçois votre site internet et développe votre <strong>acquisition digitale</strong>
+                        pour transformer votre présence en ligne en <strong>machine à clients</strong>.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Demander un devis
+                            gratuit</a>
+                        <a href="#realisations" class="btn btn-outline"><i class="fas fa-eye"></i> Voir mes
+                            réalisations</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card hero-card-1">
+                        <picture>
+                            <source srcset="images/demo-coiffure.avif" type="image/avif">
+                            <source srcset="images/demo-coiffure.webp" type="image/webp">
+                            <img src="images/demo-coiffure.png" alt="Exemple site vitrine salon de coiffure créé par Maël Grosa, concepteur web à Marseille" width="800" height="600" fetchpriority="high">
+                        </picture>
+                    </div>
+                    <div class="hero-card hero-card-2">
+                        <picture>
+                            <source srcset="images/demo-restaurant.avif" type="image/avif">
+                            <source srcset="images/demo-restaurant.webp" type="image/webp">
+                            <img src="images/demo-restaurant.png" alt="Exemple site vitrine restaurant créé par Maël Grosa, développeur web freelance" width="800" height="600">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator" aria-hidden="true">
+            <span>Découvrir</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Trust bar -->
+    <section class="trust">
         <div class="container">
             <div class="trust-grid">
                 <div class="trust-item">
@@ -203,62 +251,6 @@
         </div>
     </section>
 
-    <!-- Hero -->
-    <section id="accueil" class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <div class="hero-badge">
-                        <span class="badge-dot"></span>
-                        Disponible pour de nouveaux projets
-                    </div>
-                    <h1>Je transforme votre site en <em class="hero-typed" aria-label="machine à clients, levier de croissance, atout commercial, ROI mesurable"></em></h1>
-                    <p class="hero-subtitle">
-                        Création web + acquisition digitale pour <strong>TPE & indépendants</strong> à Marseille.
-                        Devis gratuit, réponse sous 24h.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Demander un devis
-                            gratuit</a>
-                        <a href="#realisations" class="btn btn-outline"><i class="fas fa-eye"></i> Voir mes
-                            réalisations</a>
-                    </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="hero-card hero-card-1">
-                        <picture>
-                            <source srcset="images/demo-coiffure.webp" type="image/webp">
-                            <img src="images/demo-coiffure.png" alt="Exemple site vitrine salon de coiffure créé par Maël Grosa, concepteur web à Marseille" width="800" height="600" fetchpriority="high">
-                        </picture>
-                        <div class="hero-kpi hero-kpi-conv" aria-hidden="true">
-                            <div class="hero-kpi-label">Conversions</div>
-                            <div class="hero-kpi-value">+120% <i class="fas fa-arrow-trend-up"></i></div>
-                            <svg class="hero-kpi-spark" viewBox="0 0 60 20" preserveAspectRatio="none">
-                                <polyline points="0,16 10,14 20,12 30,10 40,6 50,4 60,2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="hero-card hero-card-2">
-                        <picture>
-                            <source srcset="images/demo-restaurant.webp" type="image/webp">
-                            <img src="images/demo-restaurant.png" alt="Exemple site vitrine restaurant créé par Maël Grosa, développeur web freelance" width="800" height="600">
-                        </picture>
-                        <div class="hero-kpi hero-kpi-seo" aria-hidden="true">
-                            <div class="hero-kpi-label"><i class="fab fa-google"></i> SEO</div>
-                            <div class="hero-kpi-value">Top 3</div>
-                            <div class="hero-kpi-sub">en 14 jours</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll-indicator" aria-hidden="true">
-            <span>Découvrir</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- Trust bar -->
     <!-- À propos -->
     <section id="a-propos" class="about">
         <div class="container">
@@ -408,13 +400,25 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-robot"></i></div>
-                    <h3>Stratégie & automatisation</h3>
-                    <p>Audit complet, plan d'action chiffré et workflows N8N pour nurturer vos prospects et automatiser votre prospection.</p>
+                    <h3>Email marketing & automatisation</h3>
+                    <p>Séquences automatisées et workflows N8N pour nurturer vos prospects et connecter vos outils entre eux.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Audit & roadmap d'acquisition</li>
-                        <li><i class="fas fa-check"></i> Email marketing (Mailchimp / HubSpot)</li>
+                        <li><i class="fas fa-check"></i> Séquences email & segmentation</li>
+                        <li><i class="fas fa-check"></i> Mailchimp / HubSpot</li>
                         <li><i class="fas fa-check"></i> Workflows N8N sur-mesure</li>
-                        <li><i class="fas fa-check"></i> Funnel & optimisation du CAC</li>
+                        <li><i class="fas fa-check"></i> Automatisation de prospection</li>
+                    </ul>
+                    <p class="service-price">Tarif sur <strong>devis</strong></p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3>Audit & stratégie d'acquisition</h3>
+                    <p>Un regard expert sur votre stratégie digitale avec un plan d'action concret pour réduire vos coûts d'acquisition.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Analyse concurrentielle & audit</li>
+                        <li><i class="fas fa-check"></i> Funnel marketing & tests A/B</li>
+                        <li><i class="fas fa-check"></i> Optimisation du CAC</li>
+                        <li><i class="fas fa-check"></i> Roadmap de croissance</li>
                     </ul>
                     <p class="service-price">Tarif sur <strong>devis</strong></p>
                 </div>
@@ -423,7 +427,7 @@
     </section>
 
     <!-- CTA intermédiaire -->
-    <div class="cta-interstitiel" hidden>
+    <div class="cta-interstitiel">
         <div class="container">
             <p>Vous avez un projet similaire à l'un de ces exemples ?</p>
             <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Parlons-en gratuitement</a>
@@ -441,9 +445,9 @@
             </div>
             <div class="portfolio-grid" id="portfolioGrid">
                 <article class="portfolio-card">
-                    <span class="portfolio-demo-badge" title="Site de démonstration"><i class="fas fa-flask"></i> Démo / Concept</span>
                     <div class="portfolio-img">
                         <picture>
+                            <source srcset="images/demo-restaurant.avif" type="image/avif">
                             <source srcset="images/demo-restaurant.webp" type="image/webp">
                             <img src="images/demo-restaurant.png" alt="Site vitrine restaurant vietnamien Viet Wok créé par Maël Grosa, concepteur web freelance à Marseille" loading="lazy" width="800" height="600">
                         </picture>
@@ -460,9 +464,9 @@
                     </div>
                 </article>
                 <article class="portfolio-card">
-                    <span class="portfolio-demo-badge" title="Site de démonstration"><i class="fas fa-flask"></i> Démo / Concept</span>
                     <div class="portfolio-img">
                         <picture>
+                            <source srcset="images/demo-coiffure.avif" type="image/avif">
                             <source srcset="images/demo-coiffure.webp" type="image/webp">
                             <img src="images/demo-coiffure.png" alt="Site vitrine salon de coiffure Élégance Paris créé par Maël Grosa, développeur web freelance" loading="lazy" width="800" height="600">
                         </picture>
@@ -479,9 +483,9 @@
                     </div>
                 </article>
                 <article class="portfolio-card">
-                    <span class="portfolio-demo-badge" title="Site de démonstration"><i class="fas fa-flask"></i> Démo / Concept</span>
                     <div class="portfolio-img">
                         <picture>
+                            <source srcset="images/demo-coach.avif" type="image/avif">
                             <source srcset="images/demo-coach.webp" type="image/webp">
                             <img src="images/demo-coach.png" alt="Landing page coach développement personnel Claire Martin créée par Maël Grosa, création site internet freelance" loading="lazy" width="800" height="600">
                         </picture>
@@ -511,13 +515,7 @@
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="testimonial-stars" role="img" aria-label="Note 5 sur 5">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
                     <p>« Maël a créé un site pour ma boutique en 10 jours. Résultat : je suis passée en première page Google en 3 semaines. Je recommande les yeux fermés ! »</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">SM</div>
@@ -528,13 +526,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-stars" role="img" aria-label="Note 5 sur 5">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
                     <p>« Professionnalisme et réactivité au rendez-vous. Mon site de coaching a transformé ma présence en ligne. Les demandes de rendez-vous ont doublé le premier mois. »</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">TL</div>
@@ -545,13 +537,7 @@
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="testimonial-stars" role="img" aria-label="Note 5 sur 5">
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.6 21.7l1.7-7.3L1.6 9.5l7.5-.6L12 2z"/></svg>
-                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
                     <p>« Un site magnifique, rapide et qui donne vraiment confiance aux clients. Maël a su parfaitement capturer l'ambiance de notre restaurant. »</p>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">MC</div>
@@ -574,28 +560,24 @@
             </div>
             <div class="process-steps">
                 <div class="process-step">
-                    <div class="step-icon" aria-hidden="true"><i class="fas fa-comments"></i></div>
                     <div class="step-number">1</div>
                     <h3>Échange gratuit</h3>
                     <p>On discute de votre projet, vos besoins et vos objectifs. C'est gratuit et sans engagement.</p>
                 </div>
                 <div class="process-connector"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step">
-                    <div class="step-icon" aria-hidden="true"><i class="fas fa-pen-ruler"></i></div>
                     <div class="step-number">2</div>
                     <h3>Proposition & Devis</h3>
                     <p>Je vous envoie une proposition claire avec le prix, les délais et ce qui est inclus.</p>
                 </div>
                 <div class="process-connector"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step">
-                    <div class="step-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
                     <div class="step-number">3</div>
                     <h3>Création</h3>
                     <p>Je conçois votre site. Vous validez chaque étape et on ajuste ensemble.</p>
                 </div>
                 <div class="process-connector"><i class="fas fa-chevron-right"></i></div>
                 <div class="process-step">
-                    <div class="step-icon" aria-hidden="true"><i class="fas fa-rocket"></i></div>
                     <div class="step-number">4</div>
                     <h3>Mise en ligne</h3>
                     <p>Votre site est en ligne ! Je reste disponible pour les questions et évolutions.</p>
@@ -680,21 +662,9 @@
                 <p class="section-subtitle">Décrivez-moi votre projet et je vous réponds sous 24h avec une proposition
                     gratuite.</p>
             </div>
-            <div class="contact-shortcuts" role="group" aria-label="Contacts directs">
-                <span class="contact-shortcuts-label">Ou contactez-moi directement</span>
-                <div class="contact-shortcuts-chips">
-                    <a href="tel:+33749462362" class="contact-chip" data-phone-link>
-                        <i class="fas fa-phone"></i>
-                        <span>07 49 46 23 62</span>
-                    </a>
-                    <a href="mailto:contact@grosamael.fr" class="contact-chip">
-                        <i class="fas fa-envelope"></i>
-                        <span>contact@grosamael.fr</span>
-                    </a>
-                </div>
-            </div>
             <div class="contact-grid">
                 <form id="contact-form" class="contact-form">
+                    <div aria-hidden="true" style="position:absolute;left:-9999px"><input type="text" name="website_url" tabindex="-1" autocomplete="off"></div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="from_name">Votre nom <span class="required">*</span></label>
@@ -705,17 +675,15 @@
                             <input type="email" id="from_email" name="from_email" placeholder="jean@exemple.fr" aria-describedby="hint-contact" autocomplete="email">
                         </div>
                     </div>
-                    <p class="form-contact-hint"><i class="fas fa-info-circle"></i> <strong>Au moins un moyen de contact requis</strong> — email ou téléphone.</p>
-                    <span id="hint-contact" class="sr-only">Renseignez votre email ou votre numéro de téléphone</span>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Votre téléphone</label>
                             <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78" aria-describedby="hint-contact" autocomplete="tel">
                         </div>
                         <div class="form-group">
-                            <label for="project_type">Type de projet <span class="required">*</span></label>
-                            <select id="project_type" name="project_type" required>
-                                <option value="" disabled selected>— Choisir un type de projet —</option>
+                            <label for="project_type">Type de projet</label>
+                            <select id="project_type" name="project_type">
+                                <option value="">— Choisir —</option>
                                 <optgroup label="Création web">
                                     <option value="Site vitrine">Site vitrine</option>
                                     <option value="Landing page">Landing page</option>
@@ -724,12 +692,16 @@
                                 <optgroup label="Marketing digital">
                                     <option value="SEO / Référencement">SEO / Référencement naturel</option>
                                     <option value="Social Ads / Google Ads">Social Ads & Google Ads</option>
-                                    <option value="Stratégie / Automatisation">Stratégie & automatisation</option>
+                                    <option value="Email / Automatisation">Email marketing & automatisation</option>
+                                    <option value="Audit / Stratégie">Audit & stratégie d'acquisition</option>
                                 </optgroup>
                                 <option value="Autre">Autre</option>
                             </select>
                         </div>
                     </div>
+                    <p class="form-contact-hint"><i class="fas fa-info-circle"></i> Renseignez au moins un moyen de
+                        contact (email ou téléphone).</p>
+                    <span id="hint-contact" class="sr-only">Renseignez votre email ou votre numéro de téléphone</span>
                     <div class="form-group">
                         <label for="message">Décrivez votre projet <span class="required">*</span></label>
                         <textarea id="message" name="message"
@@ -737,7 +709,7 @@
                             rows="5" required autocomplete="off"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-submit">
-                        <i class="fas fa-paper-plane"></i> Demander un devis gratuit
+                        <i class="fas fa-paper-plane"></i> Envoyer ma demande de devis
                     </button>
                     <p class="form-hint"><i class="fas fa-lock"></i> Gratuit et sans engagement. Réponse sous 24h.</p>
                 </form>
@@ -747,6 +719,13 @@
                         <div>
                             <h3>Email</h3>
                             <a href="mailto:contact@grosamael.fr">contact@grosamael.fr</a>
+                        </div>
+                    </div>
+                    <div class="aside-card">
+                        <div class="aside-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <a href="tel:+33749462362">07 49 46 23 62</a>
                         </div>
                     </div>
                     <div class="aside-card">
@@ -804,7 +783,6 @@
                 <div class="footer-links">
                     <h4>Contact</h4>
                     <a href="mailto:contact@grosamael.fr"><i class="fas fa-envelope"></i> contact@grosamael.fr</a>
-                    <a href="tel:+33749462362" data-phone-link><i class="fas fa-phone"></i> 07 49 46 23 62</a>
                     <a href="https://github.com/JLMael" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                     <a href="https://www.linkedin.com/in/ma%C3%ABl-grosa-894698248/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
                     <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase"></i> Malt</a>
@@ -830,14 +808,8 @@
     </div>
 
     <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
-    <script>
-        window.emailJsConfig = {
-            publicKey: 'su0lJTd4FqCKmAX_n',
-            serviceId: 'service_khd22v7',
-            templateId: 'template_dng3hxt'
-        };
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" integrity="sha384-VDbnsk/qjpIVHPQMkJiROI+vW/7cw0k8TFYVLUabm7EWoLEDwcXh09XQ6gQ86Y0B" crossorigin="anonymous" defer></script>
+    <script src="emailjs-config.js"></script>
     <script src="shared.js" defer></script>
     <script src="script.js" defer></script>
 

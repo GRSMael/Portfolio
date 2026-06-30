@@ -140,6 +140,18 @@
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            // Honeypot anti-spam check
+            const honeypot = form.querySelector('[name="website_url"]');
+            if (honeypot && honeypot.value) return;
+
+            // Rate limiting (1 submission per 60 seconds)
+            const lastSubmit = parseInt(sessionStorage.getItem('mg_last_submit') || '0', 10);
+            if (Date.now() - lastSubmit < 60000) {
+                showToast('Veuillez patienter avant de renvoyer le formulaire.', 'error');
+                return;
+            }
+
             const btn = form.querySelector('button[type="submit"]');
             const original = btn.innerHTML;
 
@@ -158,6 +170,14 @@
                 if (!message) form.querySelector('[name="message"]').setAttribute('aria-invalid', 'true');
                 showToast('Veuillez remplir votre nom et décrire votre projet.', 'error');
                 firstEmpty.focus();
+                return;
+            }
+
+            // Validation: email format (if provided)
+            if (fromEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fromEmail)) {
+                form.querySelector('[name="from_email"]').setAttribute('aria-invalid', 'true');
+                showToast('Veuillez entrer une adresse email valide.', 'error');
+                form.querySelector('[name="from_email"]').focus();
                 return;
             }
 
@@ -210,14 +230,15 @@
                 if (res.status === 200) {
                     const formType = source ? 'devis_ads' : 'contact';
                     trackEvent('form_submit', { form_type: formType, project_type: projectType });
-                    showToast('Parfait ! Je vous réponds avec un devis sous 24h. ✉️');
+                    showToast('Demande envoyée ! Je vous réponds sous 24h. 🎉');
                     form.reset();
+                    sessionStorage.setItem('mg_last_submit', Date.now().toString());
                 } else {
                     throw new Error('Statut: ' + res.status);
                 }
             } catch (err) {
                 console.error('Erreur EmailJS:', err);
-                showToast("Oups, l'envoi a échoué. Réessayez ou écrivez-moi à contact@grosamael.fr", 'error');
+                showToast("Erreur d'envoi. Écrivez-moi à contact@grosamael.fr", 'error');
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = original;
@@ -233,10 +254,10 @@
         if (!el) return;
 
         const words = [
-            'machine à clients',
-            'levier de croissance',
-            'atout commercial',
-            'ROI mesurable'
+            'convertissent',
+            'génèrent des leads',
+            'dominent Google',
+            'automatisent votre croissance'
         ];
         let wordIdx = 0;
         let charIdx = 0;
@@ -336,7 +357,12 @@
     function initCookieBannerObserver() {
         const observer = new MutationObserver(() => {
             const banner = document.getElementById('mg-cookie-banner');
-            document.body.classList.toggle('cookie-banner-visible', !!banner);
+            const hasBanner = !!banner;
+            document.body.classList.toggle('cookie-banner-visible', hasBanner);
+            // Disconnect once banner is definitively removed (user made a choice)
+            if (!hasBanner && localStorage.getItem('mg_cookie_consent')) {
+                observer.disconnect();
+            }
         });
         observer.observe(document.body, { childList: true, subtree: true });
     }

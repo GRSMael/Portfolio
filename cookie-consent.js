@@ -102,7 +102,7 @@
         left: 0;
         right: 0;
         z-index: 999999;
-        background: rgba(15, 15, 25, 0.97);
+        background: rgba(20, 18, 16, 0.97);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-top: 1px solid rgba(255,255,255,0.08);
@@ -190,7 +190,7 @@
       }
 
       #mg-btn-accept {
-        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        background: linear-gradient(135deg, #6366f1, #7c3aed);
         color: white;
         box-shadow: 0 4px 15px rgba(79, 70, 229, 0.45);
       }
@@ -310,6 +310,12 @@
         if (link) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
+                window.resetCookieConsent();
+            });
+        }
+        const btn = document.getElementById('manageCookiesBtn');
+        if (btn) {
+            btn.addEventListener('click', function() {
                 window.resetCookieConsent();
             });
         }

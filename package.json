@@ -1,15 +1,20 @@
 {
   "name": "grosamael-portfolio",
-  "version": "1.0.0",
+  "version": "2026.04.02",
   "description": "Portfolio de Maël Grosa — Concepteur Web Freelance",
   "scripts": {
     "dev": "npx serve . -p 3000",
-    "build": "pnpm run build:css && pnpm run build:shared && pnpm run build:js && pnpm run build:images",
+    "build": "pnpm run build:css && pnpm run build:shared && pnpm run build:js && pnpm run build:theme && pnpm run build:emailjs-config && pnpm run build:devis && pnpm run build:cookie && pnpm run build:images",
     "build:css": "npx lightningcss --minify styles.css -o dist/styles.min.css",
     "build:shared": "npx terser shared.js -o dist/shared.min.js --compress --mangle",
     "build:js": "npx terser script.js -o dist/script.min.js --compress --mangle",
+    "build:theme": "npx terser theme-toggle.js -o dist/theme-toggle.min.js --compress --mangle",
+    "build:emailjs-config": "npx terser emailjs-config.js -o dist/emailjs-config.min.js --compress --mangle",
+    "build:devis": "npx terser devis-init.js -o dist/devis-init.min.js --compress --mangle",
+    "build:cookie": "npx terser cookie-consent.js -o dist/cookie-consent.min.js --compress --mangle",
     "build:images": "node scripts/convert-images.js",
     "build:tailwind": "npx tailwindcss -i demos/restaurant/tailwind.css -o demos/restaurant/styles.min.css --minify",
+    "build:version": "node -e \"const p=require('./package.json');console.log('Build version: '+p.version)\"",
     "lint": "echo 'No linter configured — add eslint if needed'"
   },
   "devDependencies": {

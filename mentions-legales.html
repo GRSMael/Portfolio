@@ -19,8 +19,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous"></noscript>
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="/manifest.json">
     <link rel="alternate" hreflang="fr" href="https://grosamael.fr/mentions-legales.html">
     <script src="cookie-consent.js" defer></script>
     <style>
@@ -75,7 +77,6 @@
             <!-- TODO: Remplacer [SIRET] par le vrai numéro -->
             SIRET : [SIRET]<br>
             Email : <a href="mailto:contact@grosamael.fr">contact@grosamael.fr</a><br>
-            Téléphone : <a href="tel:+33749462362">07 49 46 23 62</a><br>
             Site web : <a href="https://grosamael.fr">grosamael.fr</a><br>
             Profil Malt : <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer">malt.fr/profile/maelgrosa</a><br>
         </p>
@@ -183,7 +184,7 @@
 
         <h2>6.3 Gérer vos préférences cookies</h2>
         <p>Vous pouvez à tout moment modifier votre choix de consentement en cliquant sur le bouton ci-dessous. La page sera rechargée afin d'afficher à nouveau le bandeau de consentement.</p>
-        <button class="manage-cookies-btn" onclick="resetCookieConsent()">
+        <button class="manage-cookies-btn" id="manageCookiesBtn">
             <i class="fas fa-cookie-bite"></i> Gérer mes cookies
         </button>
         <p style="margin-top: 1rem;">Vous pouvez également désactiver les cookies directement dans les paramètres de votre navigateur. Notez que la désactivation de certains cookies peut affecter votre expérience de navigation.</p>
@@ -212,24 +213,6 @@
         <p>&copy; 2026 <a href="index.html" style="color: var(--accent);">Maël Grosa</a> — Concepteur Web Freelance</p>
     </footer>
 
-    <script>
-        // Minimal dark mode for this page
-        const saved = localStorage.getItem('theme');
-        if (saved) document.documentElement.setAttribute('data-theme', saved);
-        const toggle = document.getElementById('themeToggle');
-        const icon = document.getElementById('themeIcon');
-        function updateThemeUI(theme) {
-            if (icon) icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-            if (toggle) toggle.setAttribute('aria-label', theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre');
-        }
-        updateThemeUI(document.documentElement.getAttribute('data-theme') || 'light');
-        if (toggle) toggle.addEventListener('click', () => {
-            const cur = document.documentElement.getAttribute('data-theme');
-            const next = cur === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            updateThemeUI(next);
-        });
-    </script>
+    <script src="theme-toggle.js"></script>
 </body>
 </html>
