@@ -1803,3 +1803,15 @@ section {
         animation: none;
     }
 }
+
+/* --- Print --- */
+@media print {
+    .navbar, .floating-cta, .theme-toggle, .hero-scroll-indicator,
+    .mg-cookie-banner, .skip-link, .hero-visual, .social-links,
+    .contact-form { display: none !important; }
+    * { background: #fff !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+    a { color: #000 !important; text-decoration: underline; }
+    a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .85em; word-break: break-all; }
+    section { padding: 1rem 0 !important; page-break-inside: avoid; }
+    body { font-size: 12pt; line-height: 1.4; }
+}

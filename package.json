@@ -2,6 +2,9 @@
   "name": "grosamael-portfolio",
   "version": "2026.04.02",
   "description": "Portfolio de Maël Grosa — Concepteur Web Freelance",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "npx serve . -p 3000",
     "build": "pnpm run build:css && pnpm run build:shared && pnpm run build:js && pnpm run build:theme && pnpm run build:emailjs-config && pnpm run build:devis && pnpm run build:cookie && pnpm run build:images",
