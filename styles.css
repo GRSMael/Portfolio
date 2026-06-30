@@ -301,11 +301,11 @@ img {
 
 /* --- Hero --- */
 .hero {
-    min-height: 100vh;
+    min-height: 86vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 90px 0 40px;
+    padding: 96px 0 48px;
     position: relative;
 }
 
