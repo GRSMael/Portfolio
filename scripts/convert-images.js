@@ -12,7 +12,7 @@ const IMAGES_DIR = path.join(__dirname, '..', 'images');
 
 async function main() {
     // 1. Convertir les PNG en WebP
-    const pngs = ['demo-restaurant.png', 'demo-coiffure.png', 'demo-coach.png', 'proreflex.png'];
+    const pngs = ['demo-restaurant.png', 'demo-coiffure.png', 'demo-coach.png', 'proreflex.png', 'scolia.png'];
     for (const png of pngs) {
         const input = path.join(IMAGES_DIR, png);
         const output = path.join(IMAGES_DIR, png.replace('.png', '.webp'));
