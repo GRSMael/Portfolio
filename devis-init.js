@@ -1,4 +1,4 @@
-// devis-init.js — Devis page initialization
+// devis-init.js, Devis page initialization
 document.addEventListener('DOMContentLoaded', () => {
     const P = window.Portfolio;
 

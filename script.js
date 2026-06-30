@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ========================
-    // FAQ Accordion (via shared.js — handles ARIA)
+    // FAQ Accordion (via shared.js, handles ARIA)
     // ========================
     P.initFaqAccordion();
 
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ========================
-    // Contact form (via shared.js — handles validation + ARIA)
+    // Contact form (via shared.js, handles validation + ARIA)
     // ========================
     P.initContactForm('contact-form', null);
 
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
     P.initCookieBannerObserver();
 
     // ========================
-    // Couche "vivant par le mouvement" — le site répond au curseur
+    // Couche "vivant par le mouvement", le site répond au curseur
     // (désactivée si prefers-reduced-motion ou pas de pointeur fin / tactile)
     // ========================
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;

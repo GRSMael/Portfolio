@@ -1,7 +1,7 @@
 /* ========================================
-   Portfolio Pro — Maël Grosa
+   Portfolio Pro, Maël Grosa
    Adaptive Light/Dark based on OS setting
-   v2 — All audit fixes applied
+   v2, All audit fixes applied
    ======================================== */
 
 /* --- Light Mode (Default) --- */
@@ -127,7 +127,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- Display typography (Space Grotesk) — carries the personality --- */
+/* --- Display typography (Space Grotesk), carries the personality --- */
 .hero h1,
 .section-title,
 .nav-logo,
@@ -1529,14 +1529,14 @@ section {
     --nav-bg: rgba(20, 18, 16, 0.88);
 }
 
-/* [data-theme="light"] removed — redundant with :root defaults */
+/* [data-theme="light"] removed, redundant with :root defaults */
 
 /* --- Animated Counter --- */
 .stat strong {
     font-variant-numeric: tabular-nums;
 }
 
-/* --- Hero Parallax (lazy — activated by JS IntersectionObserver) --- */
+/* --- Hero Parallax (lazy, activated by JS IntersectionObserver) --- */
 .hero-card-animated .hero-card-1 {
     animation: floatCard1 6s ease-in-out infinite;
 }

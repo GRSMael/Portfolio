@@ -1,7 +1,7 @@
 {
   "name": "grosamael-portfolio",
   "version": "2026.04.02",
-  "description": "Portfolio de Maël Grosa — Concepteur Web Freelance",
+  "description": "Portfolio de Maël Grosa, Concepteur Web Freelance",
   "engines": {
     "node": ">=20"
   },
@@ -18,7 +18,7 @@
     "build:images": "node scripts/convert-images.js",
     "build:tailwind": "npx tailwindcss -i demos/restaurant/tailwind.css -o demos/restaurant/styles.min.css --minify",
     "build:version": "node -e \"const p=require('./package.json');console.log('Build version: '+p.version)\"",
-    "lint": "echo 'No linter configured — add eslint if needed'"
+    "lint": "echo 'No linter configured, add eslint if needed'"
   },
   "devDependencies": {
     "lightningcss-cli": "^1.25.0",

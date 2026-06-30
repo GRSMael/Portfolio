@@ -1,5 +1,5 @@
 /**
- * shared.js — Fonctions communes Portfolio Maël Grosa
+ * shared.js, Fonctions communes Portfolio Maël Grosa
  * Utilisé par index.html (via script.js) et devis.html
  * Pattern IIFE → window.Portfolio
  */

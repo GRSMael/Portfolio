@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * convert-images.js — Génération des assets images pour grosamael.fr
+ * convert-images.js, Génération des assets images pour grosamael.fr
  * Génère : og-image.jpg, icon-192.png, icon-512.png, et les .webp depuis les PNG
  */
 
@@ -25,7 +25,7 @@ async function main() {
         console.log(`✓ ${png} → ${png.replace('.png', '.avif')}`);
     }
 
-    // 2. Générer l'icône PWA (192x192 et 512x512) — carré indigo arrondi avec "MG"
+    // 2. Générer l'icône PWA (192x192 et 512x512), carré indigo arrondi avec "MG"
     for (const size of [192, 512]) {
         const fontSize = Math.round(size * 0.35);
         const svg = `
@@ -39,7 +39,7 @@ async function main() {
         console.log(`✓ icon-${size}.png`);
     }
 
-    // 3. Générer l'OG image (1200x630) — gradient indigo avec texte
+    // 3. Générer l'OG image (1200x630), gradient indigo avec texte
     const ogSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <defs>

@@ -1,4 +1,4 @@
-// theme-toggle.js — Minimal dark mode for secondary pages
+// theme-toggle.js, Minimal dark mode for secondary pages
 (function () {
     'use strict';
     const saved = localStorage.getItem('theme');
