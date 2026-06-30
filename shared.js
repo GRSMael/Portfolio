@@ -199,45 +199,40 @@
 
             const fromNameFinal = source ? `${fromName} [${source}]` : fromName;
 
-            const data = {
-                from_name: fromNameFinal,
-                name: fromNameFinal,
-                from_email: fromEmail || 'non-renseigné@contact.fr',
-                email: fromEmail || 'Non renseigné',
-                message: fullMessage,
-                project_type: projectType,
-                phone: phone || 'Non renseigné',
-                time: new Date().toLocaleString(),
-                reply_to: fromEmail || 'noreply@contact.fr',
-                title: `Devis ${projectType || 'Web'} — ${fromNameFinal}`,
-            };
-
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
             try {
-                if (!window.emailJsConfig) {
-                    throw new Error('EmailJS non configuré');
+                if (!window.WEB3FORMS_KEY) {
+                    throw new Error('Clé Web3Forms manquante');
                 }
 
-                const res = await emailjs.send(
-                    window.emailJsConfig.serviceId,
-                    window.emailJsConfig.templateId,
-                    data,
-                    window.emailJsConfig.publicKey
-                );
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: window.WEB3FORMS_KEY,
+                        subject: `Nouveau message du site : ${fromNameFinal}`,
+                        from_name: fromNameFinal,
+                        email: fromEmail || 'non renseigné',
+                        phone: phone || 'Non renseigné',
+                        project_type: projectType || 'Non précisé',
+                        message: fullMessage,
+                    }),
+                });
+                const json = await res.json();
 
-                if (res.status === 200) {
+                if (json.success) {
                     const formType = source ? 'devis_ads' : 'contact';
                     trackEvent('form_submit', { form_type: formType, project_type: projectType });
                     showToast('Demande envoyée ! Je vous réponds sous 24h. 🎉');
                     form.reset();
                     sessionStorage.setItem('mg_last_submit', Date.now().toString());
                 } else {
-                    throw new Error('Statut: ' + res.status);
+                    throw new Error(json.message || "Échec de l'envoi");
                 }
             } catch (err) {
-                console.error('Erreur EmailJS:', err);
+                console.error('Erreur formulaire:', err);
                 showToast("Erreur d'envoi. Écrivez-moi à contact@grosamael.fr", 'error');
             } finally {
                 btn.disabled = false;
