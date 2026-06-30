@@ -210,14 +210,14 @@
                 if (res.status === 200) {
                     const formType = source ? 'devis_ads' : 'contact';
                     trackEvent('form_submit', { form_type: formType, project_type: projectType });
-                    showToast('Demande envoyée ! Je vous réponds sous 24h. 🎉');
+                    showToast('Parfait ! Je vous réponds avec un devis sous 24h. ✉️');
                     form.reset();
                 } else {
                     throw new Error('Statut: ' + res.status);
                 }
             } catch (err) {
                 console.error('Erreur EmailJS:', err);
-                showToast("Erreur d'envoi. Écrivez-moi à contact@grosamael.fr", 'error');
+                showToast("Oups, l'envoi a échoué. Réessayez ou écrivez-moi à contact@grosamael.fr", 'error');
             } finally {
                 btn.disabled = false;
                 btn.innerHTML = original;
@@ -233,10 +233,10 @@
         if (!el) return;
 
         const words = [
-            'convertissent',
-            'génèrent des leads',
-            'dominent Google',
-            'automatisent votre croissance'
+            'machine à clients',
+            'levier de croissance',
+            'atout commercial',
+            'ROI mesurable'
         ];
         let wordIdx = 0;
         let charIdx = 0;

@@ -161,6 +161,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Track phone clicks
+    document.querySelectorAll('[data-phone-link]').forEach((link) => {
+        link.addEventListener('click', () => {
+            P.trackEvent('phone_click', { source: 'portfolio' });
+        });
+    });
+
     // ========================
     // FAQ Accordion (via shared.js — handles ARIA)
     // ========================

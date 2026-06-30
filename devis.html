@@ -84,6 +84,14 @@
         .devis-header .nav-dot { color: var(--accent); }
         .devis-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; background: var(--green-bg); color: var(--green); border-radius: 50px; font-size: 0.78rem; font-weight: 600; }
         .devis-header-right { display: flex; align-items: center; gap: 0.75rem; }
+        .devis-header-cta { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.9rem; background: var(--accent); color: #fff !important; border-radius: 8px; font-size: 0.85rem; font-weight: 700; text-decoration: none; transition: var(--transition); box-shadow: 0 2px 8px rgba(79,70,229,0.25); }
+        .devis-header-cta:hover, .devis-header-cta:focus-visible { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(79,70,229,0.35); }
+        .devis-header-cta i { font-size: 0.8rem; }
+        @media (max-width: 480px) {
+            .devis-header-cta span { display: none; }
+            .devis-header-cta { padding: 0.5rem 0.7rem; }
+            .devis-badge { display: none; }
+        }
 
         /* Hero devis */
         .devis-hero { padding: 100px 0 60px; }
@@ -120,6 +128,9 @@
     <header class="devis-header">
         <a href="index.html" class="nav-logo">Maël Grosa<span class="nav-dot">.</span></a>
         <div class="devis-header-right">
+            <a href="tel:+33749462362" class="devis-header-cta" data-phone-link aria-label="Appeler Maël Grosa au 07 49 46 23 62">
+                <i class="fas fa-phone"></i><span>07 49 46 23 62</span>
+            </a>
             <span class="devis-badge"><i class="fas fa-check"></i> Devis gratuit en 24h</span>
             <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre"><i class="fas fa-moon" id="themeIcon"></i></button>
         </div>
@@ -469,6 +480,15 @@
                 }
             });
         }
+
+        // Phone click tracking (GA4 + future Google Ads conversion)
+        document.querySelectorAll('[data-phone-link]').forEach(link => {
+            link.addEventListener('click', () => {
+                if (typeof gtag === 'function' && localStorage.getItem('mg_cookie_consent') === 'granted') {
+                    gtag('event', 'phone_click', { source: 'devis_ads' });
+                }
+            });
+        });
 
         // Scroll reveal
         const revealObserver = new IntersectionObserver(entries => {
