@@ -1840,3 +1840,171 @@ section {
     section { padding: 1rem 0 !important; page-break-inside: avoid; }
     body { font-size: 12pt; line-height: 1.4; }
 }
+
+/* --- Pôles : 2 grandes cartes services -> pages détail --- */
+.poles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.pole-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(1.75rem, 3vw, 2.75rem);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pole-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pole-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.pole-card:hover::before {
+    transform: scaleY(1);
+}
+
+.pole-index {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    margin-bottom: 1.25rem;
+}
+
+.pole-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.pole-title {
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    color: var(--text-heading);
+    margin-bottom: 0.75rem;
+}
+
+.pole-desc {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 44ch;
+}
+
+.pole-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.pole-tags li {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 0.3rem 0.8rem;
+}
+
+.pole-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: gap 0.25s ease;
+}
+
+.pole-card:hover .pole-link {
+    gap: 0.9rem;
+}
+
+@media (max-width: 720px) {
+    .poles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Pages détail : hero de page --- */
+.page-hero {
+    padding: calc(70px + clamp(3rem, 8vw, 6rem)) 0 clamp(2rem, 5vw, 3.5rem);
+    position: relative;
+}
+
+.page-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.page-back:hover {
+    color: var(--accent);
+    gap: 0.8rem;
+}
+
+.page-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--text-heading);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin: 0.5rem 0 1.5rem;
+}
+
+.page-lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 60ch;
+    margin-bottom: 2rem;
+}
+
+.page-lead strong {
+    color: var(--text);
+}
+
+.page-lead em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 600;
+}

@@ -166,10 +166,9 @@
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#accueil" class="nav-link">Accueil</a></li>
-                <li><a href="#a-propos" class="nav-link">À propos</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="creation-web.html" class="nav-link">Création web</a></li>
+                <li><a href="marketing-digital.html" class="nav-link">Marketing digital</a></li>
                 <li><a href="#realisations" class="nav-link">Réalisations</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contact" class="nav-link nav-cta"><i class="fas fa-paper-plane"></i> Me contacter</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre">
@@ -327,110 +326,37 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Ce que je propose</span>
-                <h2 class="section-title">Création web & acquisition digitale</h2>
-                <p class="section-subtitle">Sites web sur-mesure et stratégies marketing pour développer votre activité en ligne et attirer plus de clients.</p>
+                <span class="section-tag">Ce que je fais</span>
+                <h2 class="section-title">Deux expertises, un seul objectif</h2>
+                <p class="section-subtitle">Je crée votre site et je le rends visible. Cliquez sur ce qui vous intéresse pour en savoir plus.</p>
             </div>
-            <div class="service-tabs" role="tablist" aria-label="Catégories de services">
-                <button class="service-tab active" role="tab" id="tab-web" aria-selected="true" aria-controls="panel-web">
-                    <i class="fas fa-laptop-code"></i> Création web
-                </button>
-                <button class="service-tab" role="tab" id="tab-marketing" aria-selected="false" aria-controls="panel-marketing">
-                    <i class="fas fa-rocket"></i> Marketing digital <span class="service-tab-badge">Growth Hacker</span>
-                </button>
-            </div>
-            <div class="services-grid" id="panel-web" role="tabpanel" aria-labelledby="tab-web">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-store"></i></div>
-                    <h3>Site Vitrine</h3>
-                    <p>Un site élégant pour présenter votre activité, vos services et permettre à vos clients de vous
-                        contacter facilement.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Design professionnel personnalisé</li>
-                        <li><i class="fas fa-check"></i> Adapté mobile et tablette</li>
-                        <li><i class="fas fa-check"></i> Formulaire de contact</li>
-                        <li><i class="fas fa-check"></i> Optimisé pour Google</li>
+            <div class="poles-grid">
+                <article class="pole-card">
+                    <span class="pole-index">01</span>
+                    <div class="pole-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="pole-title">Création de site web</h3>
+                    <p class="pole-desc">Sites vitrines, landing pages et applications web sur-mesure — élégants, rapides
+                        et pensés pour convertir vos visiteurs en clients.</p>
+                    <ul class="pole-tags">
+                        <li>Site vitrine</li>
+                        <li>Landing page</li>
+                        <li>Application web</li>
                     </ul>
-                    <p class="service-price">À partir de <strong>400 €</strong></p>
-                </div>
-                <div class="service-card featured">
-                    <div class="service-badge">Le + demandé</div>
-                    <div class="service-icon"><i class="fas fa-bullseye"></i></div>
-                    <h3>Landing Page</h3>
-                    <p>Une page percutante conçue pour convertir vos visiteurs en clients, avec un design optimisé pour
-                        l'action.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Design orienté conversion</li>
-                        <li><i class="fas fa-check"></i> Appels à l'action stratégiques</li>
-                        <li><i class="fas fa-check"></i> Intégration formulaire / réservation</li>
-                        <li><i class="fas fa-check"></i> Rapide à mettre en ligne</li>
+                    <a href="creation-web.html" class="pole-link">En savoir + <i class="fas fa-arrow-right"></i></a>
+                </article>
+                <article class="pole-card">
+                    <span class="pole-index">02</span>
+                    <div class="pole-icon"><i class="fas fa-rocket"></i></div>
+                    <h3 class="pole-title">Marketing digital &amp; acquisition</h3>
+                    <p class="pole-desc">SEO, Google Ads, Social Ads et automatisation : j'attire un trafic qualifié et je
+                        transforme votre présence en ligne en machine à clients.</p>
+                    <ul class="pole-tags">
+                        <li>SEO / Référencement</li>
+                        <li>Google &amp; Social Ads</li>
+                        <li>Automatisation</li>
                     </ul>
-                    <p class="service-price"><span class="service-price-old">350 €</span> À partir de <strong>250 €</strong></p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Application Web</h3>
-                    <p>Un site plus complexe avec des fonctionnalités avancées : espace membre, gestion de contenu, base
-                        de données.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Fonctionnalités sur-mesure</li>
-                        <li><i class="fas fa-check"></i> Panneau d'administration</li>
-                        <li><i class="fas fa-check"></i> Base de données sécurisée</li>
-                        <li><i class="fas fa-check"></i> Hébergement & maintenance</li>
-                    </ul>
-                    <p class="service-price">Tarif sur <strong>devis</strong></p>
-                </div>
-            </div>
-            <div class="services-grid services-grid-marketing" id="panel-marketing" role="tabpanel" aria-labelledby="tab-marketing" hidden>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>SEO & Référencement naturel</h3>
-                    <p>Positionnez votre site en tête des résultats Google et attirez un trafic qualifié durablement.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Audit technique complet</li>
-                        <li><i class="fas fa-check"></i> Optimisation on-page</li>
-                        <li><i class="fas fa-check"></i> Stratégie de contenu & netlinking</li>
-                        <li><i class="fas fa-check"></i> Suivi de positionnement</li>
-                    </ul>
-                    <p class="service-price">Tarif sur <strong>devis</strong></p>
-                </div>
-                <div class="service-card featured">
-                    <div class="service-badge">ROI rapide</div>
-                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                    <h3>Social Ads & Google Ads</h3>
-                    <p>Campagnes publicitaires ciblées sur Meta, LinkedIn et Google pour générer des leads et maximiser votre retour sur investissement.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Meta Ads (Facebook & Instagram)</li>
-                        <li><i class="fas fa-check"></i> Google Ads Search & Display</li>
-                        <li><i class="fas fa-check"></i> Ciblage & retargeting intelligent</li>
-                        <li><i class="fas fa-check"></i> Suivi des conversions & optimisation ROI</li>
-                    </ul>
-                    <p class="service-price">Tarif sur <strong>devis</strong></p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-robot"></i></div>
-                    <h3>Email marketing & automatisation</h3>
-                    <p>Séquences automatisées et workflows N8N pour nurturer vos prospects et connecter vos outils entre eux.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Séquences email & segmentation</li>
-                        <li><i class="fas fa-check"></i> Mailchimp / HubSpot</li>
-                        <li><i class="fas fa-check"></i> Workflows N8N sur-mesure</li>
-                        <li><i class="fas fa-check"></i> Automatisation de prospection</li>
-                    </ul>
-                    <p class="service-price">Tarif sur <strong>devis</strong></p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
-                    <h3>Audit & stratégie d'acquisition</h3>
-                    <p>Un regard expert sur votre stratégie digitale avec un plan d'action concret pour réduire vos coûts d'acquisition.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Analyse concurrentielle & audit</li>
-                        <li><i class="fas fa-check"></i> Funnel marketing & tests A/B</li>
-                        <li><i class="fas fa-check"></i> Optimisation du CAC</li>
-                        <li><i class="fas fa-check"></i> Roadmap de croissance</li>
-                    </ul>
-                    <p class="service-price">Tarif sur <strong>devis</strong></p>
-                </div>
+                    <a href="marketing-digital.html" class="pole-link">En savoir + <i class="fas fa-arrow-right"></i></a>
+                </article>
             </div>
         </div>
     </section>
