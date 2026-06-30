@@ -126,11 +126,6 @@
         const form = document.getElementById(formId);
         if (!form) return;
 
-        // EmailJS init
-        if (window.emailJsConfig) {
-            emailjs.init(window.emailJsConfig.publicKey);
-        }
-
         // Clear aria-invalid on input
         form.querySelectorAll('input, textarea, select').forEach((field) => {
             field.addEventListener('input', () => {
