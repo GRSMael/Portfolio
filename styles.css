@@ -6,6 +6,7 @@
 
 /* --- Light Mode (Default) --- */
 :root {
+    color-scheme: light; /* contrôles natifs (scrollbar, champs) en clair par défaut */
     --bg: #f5f0e6;
     --bg-alt: #ece5d8;
     --bg-card: #faf6ef;
@@ -1504,6 +1505,7 @@ section {
 
 /* Manual dark mode override */
 [data-theme="dark"] {
+    color-scheme: dark; /* contrôles natifs en sombre quand l'utilisateur choisit le mode sombre */
     --bg: #141210;
     --bg-alt: #1c1a17;
     --bg-card: #211f1b;

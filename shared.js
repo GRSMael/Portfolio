@@ -10,9 +10,9 @@
     // Theme
     // ========================
     function getPreferredTheme() {
-        const saved = localStorage.getItem('theme');
-        if (saved) return saved;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        // Mode clair par défaut ; on ne suit plus le thème de l'OS.
+        // Un choix explicite (bouton de bascule) reste mémorisé.
+        return localStorage.getItem('theme') || 'light';
     }
 
     function setTheme(theme) {
@@ -40,12 +40,6 @@
                 setTheme(current === 'dark' ? 'light' : 'dark');
             });
         }
-
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                setTheme(e.matches ? 'dark' : 'light');
-            }
-        });
     }
 
     // ========================
