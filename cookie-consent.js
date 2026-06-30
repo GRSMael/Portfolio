@@ -143,7 +143,7 @@
         font-size: 22px;
         flex-shrink: 0;
         margin-top: 2px;
-        filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
+        filter: drop-shadow(0 0 8px rgba(91, 155, 245, 0.5));
       }
 
       #mg-cookie-text p {
@@ -161,7 +161,7 @@
       }
 
       #mg-cookie-text a {
-        color: #818cf8;
+        color: #5b9bf5;
         text-decoration: none;
       }
 
@@ -190,14 +190,14 @@
       }
 
       #mg-btn-accept {
-        background: linear-gradient(135deg, #6366f1, #7c3aed);
+        background: linear-gradient(135deg, #1a56c4, #3b78e0);
         color: white;
-        box-shadow: 0 4px 15px rgba(79, 70, 229, 0.45);
+        box-shadow: 0 4px 15px rgba(26, 86, 196, 0.4);
       }
 
       #mg-btn-accept:hover {
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6);
+        box-shadow: 0 6px 20px rgba(26, 86, 196, 0.55);
       }
 
       #mg-btn-deny {
@@ -245,7 +245,7 @@
             <strong style="color:#fff">Microsoft Clarity</strong> et
             <strong style="color:#fff">Google Analytics</strong>. Ces outils ne sont activés
             qu'avec votre accord, conformément au RGPD.
-            <a href="/mentions-legales.html#cookies" style="color:#818cf8">En savoir plus</a>
+            <a href="/mentions-legales.html#cookies" style="color:#5b9bf5">En savoir plus</a>
           </p>
         </div>
       </div>

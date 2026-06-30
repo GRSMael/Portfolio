@@ -30,7 +30,7 @@ async function main() {
         const fontSize = Math.round(size * 0.35);
         const svg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
-  <rect rx="${size * 0.2}" width="${size}" height="${size}" fill="#4f46e5"/>
+  <rect rx="${size * 0.2}" width="${size}" height="${size}" fill="#1a56c4"/>
   <text x="${size/2}" y="${size * 0.65}" font-size="${fontSize}" font-family="system-ui, -apple-system, sans-serif"
     font-weight="bold" fill="white" text-anchor="middle">${'MG'}</text>
 </svg>`;
@@ -44,18 +44,18 @@ async function main() {
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <defs>
     <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4f46e5"/>
-      <stop offset="100%" style="stop-color:#7c3aed"/>
+      <stop offset="0%" style="stop-color:#1a56c4"/>
+      <stop offset="100%" style="stop-color:#2f6fd6"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#g)"/>
   <rect x="60" y="60" width="1080" height="510" rx="24" fill="rgba(255,255,255,0.06)"/>
   <text x="600" y="220" font-size="48" font-family="system-ui, -apple-system, sans-serif"
-    font-weight="bold" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="4">CONCEPTEUR WEB FREELANCE</text>
+    font-weight="bold" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="4">WEB · MARKETING · INFORMATIQUE</text>
   <text x="600" y="350" font-size="110" font-family="system-ui, -apple-system, sans-serif"
     font-weight="900" fill="white" text-anchor="middle" letter-spacing="-2">Maël Grosa</text>
   <text x="600" y="450" font-size="42" font-family="system-ui, -apple-system, sans-serif"
-    fill="rgba(199,210,254,0.9)" text-anchor="middle">Marseille · Sites web sur-mesure · Devis gratuit</text>
+    fill="rgba(190,215,255,0.9)" text-anchor="middle">Freelance à Marseille · Devis gratuit</text>
   <text x="600" y="545" font-size="30" font-family="system-ui, -apple-system, sans-serif"
     fill="rgba(255,255,255,0.5)" text-anchor="middle">grosamael.fr</text>
 </svg>`;
