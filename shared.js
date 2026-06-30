@@ -15,9 +15,9 @@
         return localStorage.getItem('theme') || 'light';
     }
 
-    function setTheme(theme) {
+    function setTheme(theme, persist) {
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
+        if (persist) localStorage.setItem('theme', theme);
         const themeIcon = document.getElementById('themeIcon');
         if (themeIcon) {
             themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
@@ -31,13 +31,20 @@
     }
 
     function initTheme() {
-        setTheme(getPreferredTheme());
+        // Migration unique : l'ancienne version enregistrait le thème de l'OS dans
+        // localStorage à chaque visite. On purge cette valeur auto-enregistrée afin
+        // de repartir sur le mode clair par défaut. Seul un choix explicite est gardé.
+        if (!localStorage.getItem('theme_default_light')) {
+            localStorage.removeItem('theme');
+            localStorage.setItem('theme_default_light', '1');
+        }
+        setTheme(getPreferredTheme(), false);
 
         const themeToggle = document.getElementById('themeToggle');
         if (themeToggle) {
             themeToggle.addEventListener('click', () => {
                 const current = document.documentElement.getAttribute('data-theme');
-                setTheme(current === 'dark' ? 'light' : 'dark');
+                setTheme(current === 'dark' ? 'light' : 'dark', true);
             });
         }
     }

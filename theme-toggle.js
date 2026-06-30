@@ -1,6 +1,12 @@
 // theme-toggle.js, Minimal dark mode for secondary pages
 (function () {
     'use strict';
+    // Migration unique : purge le thème auto-enregistré par l'ancienne version
+    // (mode clair par défaut). Voir shared.js.
+    if (!localStorage.getItem('theme_default_light')) {
+        localStorage.removeItem('theme');
+        localStorage.setItem('theme_default_light', '1');
+    }
     const saved = localStorage.getItem('theme');
     if (saved) document.documentElement.setAttribute('data-theme', saved);
     const toggle = document.getElementById('themeToggle');
