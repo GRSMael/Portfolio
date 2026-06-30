@@ -227,4 +227,73 @@ document.addEventListener("DOMContentLoaded", () => {
     // Cookie banner CTA collision (via shared.js)
     // ========================
     P.initCookieBannerObserver();
+
+    // ========================
+    // Couche "vivant par le mouvement" — le site répond au curseur
+    // (désactivée si prefers-reduced-motion ou pas de pointeur fin / tactile)
+    // ========================
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (finePointer && !reduceMotion) {
+        // --- Tilt 3D des cartes au survol (réagit à la position du curseur) ---
+        document.querySelectorAll(".service-card, .portfolio-card, .value-card, .testimonial-card").forEach((card) => {
+            const MAX = 6;
+            card.addEventListener("pointerenter", () => {
+                card.style.transition = "transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease";
+            });
+            card.addEventListener("pointermove", (e) => {
+                const r = card.getBoundingClientRect();
+                const rx = (0.5 - (e.clientY - r.top) / r.height) * MAX;
+                const ry = ((e.clientX - r.left) / r.width - 0.5) * MAX;
+                card.style.transform =
+                    `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-6px)`;
+            });
+            card.addEventListener("pointerleave", () => {
+                card.style.transition = "transform 0.55s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease";
+                card.style.transform = "";
+            });
+        });
+
+        // --- Boutons magnétiques (attraction douce vers le curseur) ---
+        document.querySelectorAll(".btn-primary, .nav-cta").forEach((btn) => {
+            const STR = 0.3;
+            btn.addEventListener("pointerenter", () => {
+                btn.style.transition = "transform 0.15s ease-out, box-shadow 0.3s ease";
+            });
+            btn.addEventListener("pointermove", (e) => {
+                const r = btn.getBoundingClientRect();
+                const x = (e.clientX - r.left - r.width / 2) * STR;
+                const y = (e.clientY - r.top - r.height / 2) * STR;
+                btn.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+            });
+            btn.addEventListener("pointerleave", () => {
+                btn.style.transition = "transform 0.45s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease";
+                btn.style.transform = "";
+            });
+        });
+
+        // --- Parallaxe du groupe de cartes hero (suit le curseur, avec inertie) ---
+        const hero = document.querySelector(".hero");
+        const heroVisual = document.querySelector(".hero-visual");
+        if (hero && heroVisual) {
+            let tX = 0, tY = 0, cX = 0, cY = 0, raf = null;
+            const tick = () => {
+                cX += (tX - cX) * 0.08;
+                cY += (tY - cY) * 0.08;
+                heroVisual.style.transform = `translate(${cX.toFixed(2)}px, ${cY.toFixed(2)}px)`;
+                raf = (Math.abs(tX - cX) > 0.1 || Math.abs(tY - cY) > 0.1) ? requestAnimationFrame(tick) : null;
+            };
+            hero.addEventListener("pointermove", (e) => {
+                const r = hero.getBoundingClientRect();
+                tX = ((e.clientX - r.left) / r.width - 0.5) * 24;
+                tY = ((e.clientY - r.top) / r.height - 0.5) * 18;
+                if (!raf) raf = requestAnimationFrame(tick);
+            }, { passive: true });
+            hero.addEventListener("pointerleave", () => {
+                tX = 0; tY = 0;
+                if (!raf) raf = requestAnimationFrame(tick);
+            });
+        }
+    }
 });
