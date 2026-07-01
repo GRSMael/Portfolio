@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci pour votre demande · Maël Grosa</title>
+    <meta name="description" content="Votre demande a bien été envoyée. Je vous réponds sous 24h.">
+    <meta name="robots" content="noindex, follow">
+    <meta property="og:title" content="Merci pour votre demande · Maël Grosa">
+    <meta property="og:description" content="Votre demande a bien été envoyée. Je vous réponds sous 24h.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.grosamael.fr/merci.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%231a56c4'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>MG</text></svg>">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous"></noscript>
+    <link rel="stylesheet" href="dist/styles.min.css?v=20260701">
+    <link rel="manifest" href="/manifest.json">
+    <script src="dist/cookie-consent.min.js?v=20260701" defer></script>
+    <style>
+        .merci-page {
+            min-height: calc(100vh - 70px - 80px);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; padding: 100px 20px 60px;
+        }
+        .merci-icon {
+            width: 84px; height: 84px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: var(--green-bg); color: var(--green);
+            font-size: 2.4rem; margin-bottom: 1.5rem;
+        }
+        .merci-title { font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; color: var(--text-heading); margin-bottom: 0.75rem; }
+        .merci-subtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 480px; line-height: 1.7; margin-bottom: 2rem; }
+        .merci-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <nav class="navbar" id="navbar" style="background: var(--nav-bg); border-bottom: 1px solid var(--border);">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Maël Grosa<span class="nav-dot">.</span></a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre">
+                <i aria-hidden="true" class="fas fa-moon" id="themeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="merci-page" id="main-content" tabindex="-1">
+        <div class="merci-icon"><i aria-hidden="true" class="fas fa-circle-check"></i></div>
+        <h1 class="merci-title">Merci, votre demande est bien partie&nbsp;!</h1>
+        <p class="merci-subtitle">
+            Je reviens vers vous <strong>sous 24h</strong> avec une proposition claire et personnalisée.
+            En attendant, une question&nbsp;? Écrivez-moi directement à
+            <a href="mailto:contact@grosamael.fr">contact@grosamael.fr</a>.
+        </p>
+        <div class="merci-actions">
+            <a href="index.html" class="btn btn-primary"><i aria-hidden="true" class="fas fa-house"></i> Retour à l'accueil</a>
+            <a href="index.html#realisations" class="btn btn-outline"><i aria-hidden="true" class="fas fa-eye"></i> Voir mes réalisations</a>
+        </div>
+    </main>
+
+    <footer style="text-align:center; padding: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;">
+        <p>&copy; 2026 <a href="index.html" style="color: var(--accent);">Maël Grosa</a>, Concepteur Web Freelance</p>
+    </footer>
+
+    <script src="dist/theme-toggle.min.js?v=20260701"></script>
+</body>
+</html>

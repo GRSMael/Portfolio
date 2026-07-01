@@ -4,22 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Création de site web à Marseille · Site vitrine, landing page, application | Maël Grosa</title>
+    <title>Création de site web à Marseille | Maël Grosa</title>
     <meta name="description"
-        content="Création de sites web sur-mesure à Marseille : site vitrine (dès 400€), landing page de conversion (dès 250€) et application web. Design pro, responsive, optimisé Google. Devis gratuit.">
+        content="Création de sites web sur-mesure à Marseille : site vitrine dès 400€, landing page dès 250€, application web. Responsive, optimisé Google. Devis gratuit.">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta property="og:title" content="Création de site web · Maël Grosa">
+    <meta property="og:title" content="Création de site web à Marseille | Maël Grosa">
     <meta property="og:description" content="Sites vitrines, landing pages et applications web sur-mesure, pensés pour convertir.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.grosamael.fr/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Création de site web à Marseille, par Maël Grosa">
+    <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Création de site web · Maël Grosa">
+    <meta name="twitter:title" content="Création de site web à Marseille | Maël Grosa">
     <meta name="twitter:description" content="Sites vitrines, landing pages et applications web sur-mesure, pensés pour convertir.">
     <meta name="twitter:image" content="https://www.grosamael.fr/images/og-image.jpg">
     <meta property="og:url" content="https://www.grosamael.fr/creation-web.html">
     <link rel="canonical" href="https://www.grosamael.fr/creation-web.html">
+    <link rel="alternate" hreflang="fr" href="https://www.grosamael.fr/creation-web.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.grosamael.fr/creation-web.html">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%231a56c4'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>MG</text></svg>">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style"
@@ -37,8 +46,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
             integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous">
     </noscript>
-    <link rel="preload" as="style" href="styles.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="style" href="dist/styles.min.css?v=20260701">
+    <link rel="stylesheet" href="dist/styles.min.css?v=20260701">
     <meta name="color-scheme" content="dark light">
     <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
@@ -51,14 +60,14 @@
       "@type": "Service",
       "name": "Création de site web",
       "serviceType": "Conception et développement de sites internet",
-      "provider": { "@type": "Person", "name": "Maël Grosa", "url": "https://www.grosamael.fr" },
+      "provider": { "@id": "https://www.grosamael.fr/#person" },
       "areaServed": { "@type": "Country", "name": "FR" },
       "description": "Sites vitrines, landing pages et applications web sur-mesure à Marseille.",
       "url": "https://www.grosamael.fr/creation-web.html"
     }
     </script>
 
-    <script src="cookie-consent.js" defer></script>
+    <script src="dist/cookie-consent.min.js?v=20260701" defer></script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.grosamael.fr/"},{"@type":"ListItem","position":2,"name":"Création web","item":"https://www.grosamael.fr/creation-web.html"}]}
     </script>
@@ -84,21 +93,21 @@
                 <li><a href="informatique.html" class="nav-link">Informatique</a></li>
                 <li><a href="about.html" class="nav-link">À propos</a></li>
                 <li><a href="index.html#realisations" class="nav-link">Réalisations</a></li>
-                <li><a href="index.html#contact" class="nav-link nav-cta"><i class="fas fa-paper-plane"></i> Me contacter</a></li>
+                <li><a href="index.html#contact" class="nav-link nav-cta"><i aria-hidden="true" class="fas fa-paper-plane"></i> Me contacter</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre">
-                <i class="fas fa-moon" id="themeIcon"></i>
+                <i aria-hidden="true" class="fas fa-moon" id="themeIcon"></i>
             </button>
         </div>
     </nav>
 
-    <main id="main">
+    <main id="main" tabindex="-1">
         <!-- Hero de page -->
         <section class="page-hero">
             <div class="container">
                 <nav class="breadcrumb" aria-label="Fil d'Ariane">
                     <a href="index.html">Accueil</a>
-                    <span class="sep">/</span>
+                    <span class="sep" aria-hidden="true">/</span>
                     <span aria-current="page">Création web</span>
                 </nav>
                 <span class="section-tag">Création web</span>
@@ -107,8 +116,8 @@
                     <strong>sur-mesure</strong>, rapides, soignés et pensés pour transformer vos visiteurs en clients.
                     Pas de template générique : du design fait pour <em>votre</em> activité.</p>
                 <div class="hero-buttons">
-                    <a href="index.html#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Demander un devis gratuit</a>
-                    <a href="index.html#realisations" class="btn btn-outline"><i class="fas fa-eye"></i> Voir mes réalisations</a>
+                    <a href="index.html#contact" class="btn btn-primary"><i aria-hidden="true" class="fas fa-paper-plane"></i> Demander un devis gratuit</a>
+                    <a href="index.html#realisations" class="btn btn-outline"><i aria-hidden="true" class="fas fa-eye"></i> Voir mes réalisations</a>
                 </div>
             </div>
         </section>
@@ -123,39 +132,39 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-store"></i></div>
+                        <div class="service-icon"><i aria-hidden="true" class="fas fa-store"></i></div>
                         <h3>Site Vitrine</h3>
                         <p>Le site idéal pour présenter votre activité, vos services et vous rendre joignable. Parfait pour les artisans, TPE et indépendants.</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Design professionnel personnalisé</li>
-                            <li><i class="fas fa-check"></i> 100% responsive (mobile & tablette)</li>
-                            <li><i class="fas fa-check"></i> Formulaire de contact</li>
-                            <li><i class="fas fa-check"></i> Optimisé pour Google (SEO de base)</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Design professionnel personnalisé</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> 100% responsive (mobile & tablette)</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Formulaire de contact</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Optimisé pour Google (SEO de base)</li>
                         </ul>
                         <p class="service-price">À partir de <strong>400 €</strong></p>
                     </div>
                     <div class="service-card featured">
                         <div class="service-badge">Le + demandé</div>
-                        <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="service-icon"><i aria-hidden="true" class="fas fa-bullseye"></i></div>
                         <h3>Landing Page</h3>
                         <p>Une page unique, percutante, conçue pour un seul objectif : convertir. Idéale pour une offre, un lancement ou une campagne pub.</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Design 100% orienté conversion</li>
-                            <li><i class="fas fa-check"></i> Appels à l'action stratégiques</li>
-                            <li><i class="fas fa-check"></i> Formulaire / prise de RDV intégré</li>
-                            <li><i class="fas fa-check"></i> Rapide à mettre en ligne</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Design 100% orienté conversion</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Appels à l'action stratégiques</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Formulaire / prise de RDV intégré</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Rapide à mettre en ligne</li>
                         </ul>
                         <p class="service-price"><span class="service-price-old">350 €</span> À partir de <strong>250 €</strong></p>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-code"></i></div>
+                        <div class="service-icon"><i aria-hidden="true" class="fas fa-code"></i></div>
                         <h3>Application Web</h3>
                         <p>Un projet plus ambitieux avec des fonctionnalités avancées : espace membre, réservation, gestion de contenu, base de données.</p>
                         <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Fonctionnalités sur-mesure</li>
-                            <li><i class="fas fa-check"></i> Panneau d'administration</li>
-                            <li><i class="fas fa-check"></i> Base de données sécurisée</li>
-                            <li><i class="fas fa-check"></i> Hébergement & maintenance</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Fonctionnalités sur-mesure</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Panneau d'administration</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Base de données sécurisée</li>
+                            <li><i aria-hidden="true" class="fas fa-check"></i> Hébergement & maintenance</li>
                         </ul>
                         <p class="service-price">Tarif sur <strong>devis</strong></p>
                     </div>
@@ -232,16 +241,16 @@
                 </div>
                 <div class="related-grid">
                     <a href="marketing-digital.html" class="related-card">
-                        <i class="fas fa-rocket"></i>
+                        <i aria-hidden="true" class="fas fa-rocket"></i>
                         <h3>Marketing digital & acquisition</h3>
                         <p>SEO, Google Ads, Social Ads et automatisation pour attirer plus de clients.</p>
-                        <span class="related-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                        <span class="related-link">Découvrir <i aria-hidden="true" class="fas fa-arrow-right"></i></span>
                     </a>
                     <a href="informatique.html" class="related-card">
-                        <i class="fas fa-microchip"></i>
+                        <i aria-hidden="true" class="fas fa-microchip"></i>
                         <h3>Informatique & matériel</h3>
                         <p>Montage, réparation de PC et achat-revente de matériel informatique en tout genre.</p>
-                        <span class="related-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+                        <span class="related-link">Découvrir <i aria-hidden="true" class="fas fa-arrow-right"></i></span>
                     </a>
                 </div>
             </div>
@@ -256,8 +265,8 @@
                     <p class="section-subtitle">Décrivez-moi votre projet, je vous réponds sous 24h avec une proposition gratuite.</p>
                 </div>
                 <div style="display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
-                    <a href="index.html#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Demander un devis gratuit</a>
-                    <a href="tel:+33749462362" class="btn btn-outline"><i class="fas fa-phone"></i> 07 49 46 23 62</a>
+                    <a href="index.html#contact" class="btn btn-primary"><i aria-hidden="true" class="fas fa-paper-plane"></i> Demander un devis gratuit</a>
+                    <a href="tel:+33749462362" class="btn btn-outline"><i aria-hidden="true" class="fas fa-phone"></i> 07 49 46 23 62</a>
                 </div>
             </div>
         </section>
@@ -283,21 +292,21 @@
                 </div>
                 <div class="footer-links">
                     <h4>Contact</h4>
-                    <a href="mailto:contact@grosamael.fr"><i class="fas fa-envelope"></i> contact@grosamael.fr</a>
-                    <a href="tel:+33749462362"><i class="fas fa-phone"></i> 07 49 46 23 62</a>
-                    <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase"></i> Malt</a>
+                    <a href="mailto:contact@grosamael.fr"><i aria-hidden="true" class="fas fa-envelope"></i> contact@grosamael.fr</a>
+                    <a href="tel:+33749462362"><i aria-hidden="true" class="fas fa-phone"></i> 07 49 46 23 62</a>
+                    <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer"><i aria-hidden="true" class="fas fa-briefcase"></i> Malt</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>© 2026 Maël Grosa, Concepteur Web &amp; Marketing Digital Freelance.
                     <a href="mentions-legales.html">Mentions légales</a> ·
-                    <a href="#" id="manageCookiesLink">Gérer les cookies</a>
+                    <button type="button" id="manageCookiesLink" style="background:none;border:none;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit;">Gérer les cookies</button>
                 </p>
             </div>
         </div>
     </footer>
 
-    <script src="shared.js" defer></script>
+    <script src="dist/shared.min.js?v=20260701" defer></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const P = window.Portfolio || {};
@@ -319,6 +328,17 @@
                 navToggle?.classList.remove("active");
                 navMenu?.classList.remove("active");
             }));
+            // Échap ferme le menu mobile et rend le focus au hamburger.
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape" && navMenu?.classList.contains("active")) {
+                    navToggle?.classList.remove("active");
+                    navMenu?.classList.remove("active");
+                    navToggle?.setAttribute("aria-expanded", "false");
+                    navToggle?.focus();
+                }
+            });
+            P.initCtaTracking && P.initCtaTracking();
+            P.initContactLinkTracking && P.initContactLinkTracking();
             const ml = document.getElementById("manageCookiesLink");
             ml?.addEventListener("click", (e) => { e.preventDefault(); window.resetCookieConsent && window.resetCookieConsent(); });
         });

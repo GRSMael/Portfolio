@@ -13,18 +13,24 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Maël Grosa, Web & Marketing Digital">
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mentions légales · Maël Grosa">
+    <meta name="twitter:description" content="Mentions légales et politique de confidentialité du site grosamael.fr">
     <link rel="canonical" href="https://www.grosamael.fr/mentions-legales.html">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%231a56c4'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>MG</text></svg>">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous"></noscript>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dist/styles.min.css?v=20260701">
     <link rel="manifest" href="/manifest.json">
     <link rel="alternate" hreflang="fr" href="https://www.grosamael.fr/mentions-legales.html">
-    <script src="cookie-consent.js" defer></script>
+    <link rel="alternate" hreflang="x-default" href="https://www.grosamael.fr/mentions-legales.html">
+    <script src="dist/cookie-consent.min.js?v=20260701" defer></script>
     <style>
         .legal-page { max-width: 800px; margin: 0 auto; padding: 100px 20px 60px; }
         .legal-page h1 { font-size: 2rem; font-weight: 800; color: var(--text-heading); margin-bottom: 2rem; }
@@ -57,13 +63,13 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Maël Grosa<span class="nav-dot">.</span></a>
             <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre">
-                <i class="fas fa-moon" id="themeIcon"></i>
+                <i aria-hidden="true" class="fas fa-moon" id="themeIcon"></i>
             </button>
         </div>
     </nav>
 
     <main class="legal-page" id="main-content">
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+        <a href="index.html" class="back-link"><i aria-hidden="true" class="fas fa-arrow-left"></i> Retour au portfolio</a>
 
         <h1>Mentions légales</h1>
 
@@ -95,7 +101,8 @@
             <strong>Vercel Inc.</strong><br>
             440 N Barranca Ave #4133<br>
             Covina, CA 91723, États-Unis<br>
-            Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>
+            Site web : <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a><br>
+            Contact : <a href="https://vercel.com/contact" target="_blank" rel="noopener noreferrer">vercel.com/contact</a>
         </p>
 
         <!-- ================================ -->
@@ -104,7 +111,7 @@
         <p>Les marques et logos des tiers éventuellement cités sur ce site appartiennent à leurs propriétaires respectifs.</p>
 
         <!-- ================================ -->
-        <h2>5. Politique de confidentialité</h2>
+        <h2 id="confidentialite">5. Politique de confidentialité</h2>
 
         <p>Maël Grosa, en tant que responsable du traitement, s'engage à protéger la vie privée des visiteurs du site <strong>grosamael.fr</strong>, conformément au Règlement Général sur la Protection des Données (RGPD, Règlement UE 2016/679) et à la loi Informatique et Libertés.</p>
 
@@ -117,7 +124,7 @@
         </ul>
         <p>Ces données sont transmises directement par e-mail via le service tiers <strong>Web3Forms</strong> (web3forms.com), sans être stockées dans une base de données. Web3Forms agit en tant que sous-traitant de traitement au sens du RGPD.</p>
         <p><strong>Finalité du traitement :</strong> répondre aux demandes de contact, d'information ou de devis.</p>
-        <p><strong>Base légale :</strong> intérêt légitime du responsable du traitement (répondre à une demande initiée par l'utilisateur).</p>
+        <p><strong>Base légale :</strong> mesures précontractuelles prises à la demande de la personne concernée (art. 6.1.b du RGPD).</p>
         <p><strong>Durée de conservation :</strong> les e-mails reçus sont conservés dans la boîte mail de Maël Grosa pour une durée maximale de <strong>3 ans</strong> à compter de la réception, puis supprimés.</p>
 
         <h2>5.2 Droits des personnes concernées</h2>
@@ -129,11 +136,12 @@
             <li><strong>Droit à la limitation du traitement</strong></li>
             <li><strong>Droit d'opposition</strong> au traitement</li>
             <li><strong>Droit à la portabilité</strong> de vos données</li>
+            <li><strong>Droit de retirer votre consentement</strong> aux cookies à tout moment, via le bouton « Gérer mes cookies »</li>
         </ul>
         <p>Pour exercer ces droits, contactez : <a href="mailto:contact@grosamael.fr">contact@grosamael.fr</a>. Vous pouvez également introduire une réclamation auprès de la <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">cnil.fr</a>).</p>
 
         <!-- ================================ -->
-        <h2>6. Cookies</h2>
+        <h2 id="cookies">6. Cookies</h2>
         <p>Lors de votre visite sur ce site, des cookies peuvent être déposés sur votre navigateur. Un cookie est un petit fichier texte stocké localement permettant d'enregistrer des informations relatives à votre navigation.</p>
         <p>Conformément à la directive ePrivacy et aux recommandations de la CNIL, les cookies non essentiels nécessitent votre consentement préalable. Un bandeau de consentement vous est présenté lors de votre première visite.</p>
 
@@ -151,7 +159,7 @@
                 <tr>
                     <td><code>mg_cookie_consent</code></td>
                     <td>grosamael.fr</td>
-                    <td>Mémorisation du choix de consentement aux cookies</td>
+                    <td>Stockage local (localStorage, ce n'est pas un cookie) : mémorise votre choix de consentement</td>
                     <td>6 mois</td>
                 </tr>
                 <tr>
@@ -182,15 +190,18 @@
         </table>
 
         <h2>6.2 Description des services tiers</h2>
-        <p><strong>Microsoft Clarity</strong> (ID : vrpnk2eyif) est un outil d'analyse du comportement des visiteurs (enregistrements de sessions, cartes de chaleur). Les données collectées sont anonymisées et ne permettent pas d'identifier personnellement les utilisateurs. Politique de confidentialité : <a href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer">privacy.microsoft.com</a>.</p>
+        <p><strong>Microsoft Clarity</strong> (ID : vrpnk2eyif) est un outil d'analyse du comportement des visiteurs (enregistrements de sessions, cartes de chaleur). Clarity applique par défaut un masquage des contenus sensibles ; certaines données (adresse IP, parcours de navigation) peuvent toutefois constituer des données personnelles, traitées sur la base de votre consentement. Politique de confidentialité : <a href="https://privacy.microsoft.com/fr-fr/privacystatement" target="_blank" rel="noopener noreferrer">privacy.microsoft.com</a>.</p>
         <p><strong>Google Analytics 4</strong> (ID : G-R45SSMC4CZ) est un outil de mesure d'audience permettant d'analyser le trafic du site (pages visitées, durée, provenance). Les données sont collectées de façon anonymisée avec IP anonymisée. Politique de confidentialité : <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</p>
 
         <h2>6.3 Gérer vos préférences cookies</h2>
         <p>Vous pouvez à tout moment modifier votre choix de consentement en cliquant sur le bouton ci-dessous. La page sera rechargée afin d'afficher à nouveau le bandeau de consentement.</p>
         <button class="manage-cookies-btn" id="manageCookiesBtn">
-            <i class="fas fa-cookie-bite"></i> Gérer mes cookies
+            <i aria-hidden="true" class="fas fa-cookie-bite"></i> Gérer mes cookies
         </button>
         <p style="margin-top: 1rem;">Vous pouvez également désactiver les cookies directement dans les paramètres de votre navigateur. Notez que la désactivation de certains cookies peut affecter votre expérience de navigation.</p>
+
+        <h2>6.4 Transferts de données hors Union européenne</h2>
+        <p>Certains prestataires sont établis aux États-Unis et sont susceptibles d'y transférer des données : <strong>Google LLC</strong> (Google Analytics 4), <strong>Microsoft Corporation</strong> (Clarity) et l'hébergeur <strong>Vercel Inc.</strong> Ces transferts sont encadrés par le <strong>Data Privacy Framework</strong> UE-États-Unis (décision d'adéquation de la Commission européenne du 10 juillet 2023) et, à défaut, par les <strong>clauses contractuelles types</strong> de la Commission européenne (art. 44 à 49 du RGPD), qui garantissent un niveau de protection adéquat des données transférées.</p>
 
         <!-- ================================ -->
         <h2>7. Crédits</h2>
@@ -207,15 +218,21 @@
         <p>Le site <strong>grosamael.fr</strong> peut contenir des liens vers des sites tiers. Ces liens sont fournis à titre informatif uniquement. Maël Grosa n'est pas responsable du contenu, de la politique de confidentialité ou des pratiques de ces sites externes.</p>
 
         <!-- ================================ -->
-        <h2>9. Droit applicable</h2>
+        <h2>9. Médiation de la consommation et information précontractuelle</h2>
+        <p>Pour les prestations destinées aux particuliers (notamment montage, réparation de PC et vente de matériel informatique), conformément aux articles L.612-1 et suivants du Code de la consommation, le consommateur a le droit de recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un litige, après avoir tenté de le résoudre directement auprès de Maël Grosa par une réclamation écrite.</p>
+        <p>Médiateur compétent : <em>[à compléter : nom et coordonnées du médiateur de la consommation agréé auprès duquel Maël Grosa a adhéré]</em>. La plateforme européenne de règlement en ligne des litiges est également accessible : <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>.</p>
+        <p>Conformément à l'article L.111-1 du Code de la consommation, les caractéristiques essentielles, le prix et les délais de chaque prestation sont communiqués au client dans le devis, avant la conclusion du contrat. Pour un contrat conclu à distance, le consommateur bénéficie d'un droit de rétractation de 14 jours (art. L.221-18), sauf exceptions légales (notamment service pleinement exécuté avant la fin du délai avec votre accord préalable, ou bien confectionné sur-mesure).</p>
+
+        <!-- ================================ -->
+        <h2>10. Droit applicable</h2>
         <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront compétents.</p>
-        <p><em>Dernière mise à jour : 16 mars 2026</em></p>
+        <p><em>Dernière mise à jour : 1er juillet 2026</em></p>
     </main>
 
     <footer style="text-align:center; padding: 2rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;">
         <p>&copy; 2026 <a href="index.html" style="color: var(--accent);">Maël Grosa</a>, Concepteur Web Freelance</p>
     </footer>
 
-    <script src="theme-toggle.js"></script>
+    <script src="dist/theme-toggle.min.js?v=20260701"></script>
 </body>
 </html>

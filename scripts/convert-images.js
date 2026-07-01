@@ -12,7 +12,7 @@ const IMAGES_DIR = path.join(__dirname, '..', 'images');
 
 async function main() {
     // 1. Convertir les PNG en WebP
-    const pngs = ['demo-restaurant.png', 'demo-coiffure.png', 'demo-coach.png', 'proreflex.png', 'scolia.png'];
+    const pngs = ['demo-restaurant.png', 'demo-coiffure.png', 'proreflex.png', 'scolia.png'];
     for (const png of pngs) {
         const input = path.join(IMAGES_DIR, png);
         const output = path.join(IMAGES_DIR, png.replace('.png', '.webp'));
@@ -25,7 +25,7 @@ async function main() {
         console.log(`✓ ${png} → ${png.replace('.png', '.avif')}`);
     }
 
-    // 2. Générer l'icône PWA (192x192 et 512x512), carré indigo arrondi avec "MG"
+    // 2. Générer l'icône PWA (192x192 et 512x512), carré bleu Marseille arrondi avec "MG"
     for (const size of [192, 512]) {
         const fontSize = Math.round(size * 0.35);
         const svg = `
@@ -39,7 +39,7 @@ async function main() {
         console.log(`✓ icon-${size}.png`);
     }
 
-    // 3. Générer l'OG image (1200x630), gradient indigo avec texte
+    // 3. Générer l'OG image (1200x630), gradient bleu Marseille avec texte
     const ogSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <defs>

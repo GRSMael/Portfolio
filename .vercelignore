@@ -1,0 +1,9 @@
+# Fichiers exclus du déploiement Vercel (servis inutilement sinon).
+# ⚠️ NE PAS ajouter scripts/ ni package.json : requis par le build Vercel
+#    (build:images = node scripts/convert-images.js, et install lit package.json).
+#    À valider sur une preview : le build doit réussir après tout ajout ici.
+node_modules
+tailwind.config.js
+CLAUDE.md
+audit-prompt-action.md
+.gitignore

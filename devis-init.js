@@ -13,14 +13,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const mc = document.getElementById('manageCookiesLink');
     if (mc) mc.addEventListener('click', e => { e.preventDefault(); if (window.resetCookieConsent) window.resetCookieConsent(); });
 
-    // Google Ads conversion tracking (post-submit hook)
+    // Tracking CTA + liens de contact (mutualisés via shared.js)
+    P.initCtaTracking();
+    P.initContactLinkTracking();
+
+    // Suivi de conversion Google Ads — déclenché sur SUCCÈS RÉEL d'envoi.
+    // shared.js émet l'event "mg:lead-success" UNIQUEMENT après la réponse OK de
+    // Web3Forms (jamais sur le simple submit). Pour activer le suivi, renseigne
+    // ADS_CONVERSION_SEND_TO au format 'AW-XXXXXXXXX/leLabel' (action de conversion
+    // "Lead/Devis" créée dans Google Ads). Tant que c'est null, aucun ping n'est envoyé.
+    const ADS_CONVERSION_SEND_TO = null; // ex. 'AW-123456789/AbCdEfGh'
     const form = document.getElementById('devis-form');
     if (form) {
-        form.addEventListener('submit', () => {
-            // TODO: remplacer AW-XXXXXXXXX/XXXXXXX par l'ID de conversion Google Ads
-            if (typeof gtag === 'function' && localStorage.getItem('mg_cookie_consent') === 'granted') {
-                gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX/XXXXXXX' });
+        form.addEventListener('mg:lead-success', () => {
+            if (ADS_CONVERSION_SEND_TO && typeof gtag === 'function' && localStorage.getItem('mg_cookie_consent') === 'granted') {
+                gtag('event', 'conversion', {
+                    send_to: ADS_CONVERSION_SEND_TO,
+                    value: 300,
+                    currency: 'EUR',
+                });
             }
+            // Redirige vers la page de remerciement (UX claire + fiabilise la conversion Ads
+            // via une URL dédiée). Léger délai pour laisser le toast de succès s'afficher.
+            setTimeout(() => { window.location.assign('merci.html'); }, 1400);
         });
     }
 

@@ -60,7 +60,7 @@
         span.textContent = message;
 
         if (type === 'error') {
-            toast.style.background = '#ef4444';
+            toast.style.background = '#b91c1c'; // ~6:1 sur texte blanc (contraste AA)
             icon.className = 'fas fa-exclamation-circle';
         } else {
             toast.style.background = '';
@@ -102,11 +102,15 @@
     function initSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach((a) => {
             a.addEventListener('click', function (e) {
-                e.preventDefault();
                 const href = this.getAttribute('href');
-                if (href === '#') return;
+                if (href === '#') { e.preventDefault(); return; }
                 const target = document.querySelector(href);
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Skip-link réellement accessible : on déplace le focus clavier sur la cible.
+                target.setAttribute('tabindex', '-1');
+                target.focus({ preventScroll: true });
             });
         });
     }
@@ -221,6 +225,13 @@
                 if (json.success) {
                     const formType = source ? 'devis_ads' : 'contact';
                     trackEvent('form_submit', { form_type: formType, project_type: projectType });
+                    // Event GA4 recommandé pour l'import de conversions (à marquer key event).
+                    trackEvent('generate_lead', { form_type: formType, project_type: projectType });
+                    // Succès RÉEL d'envoi (réponse OK de Web3Forms) : signal de conversion.
+                    // Écouté par devis-init.js pour le suivi Google Ads.
+                    form.dispatchEvent(new CustomEvent('mg:lead-success', {
+                        detail: { source: source || null, projectType }
+                    }));
                     showToast('Demande envoyée ! Je vous réponds sous 24h. 🎉');
                     form.reset();
                     sessionStorage.setItem('mg_last_submit', Date.now().toString());
@@ -250,6 +261,13 @@
             'dominent Google',
             'automatisent votre croissance'
         ];
+
+        // Respecte prefers-reduced-motion : premier mot figé, aucune animation de frappe.
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            el.textContent = words[0];
+            return;
+        }
+
         let wordIdx = 0;
         let charIdx = 0;
         let isDeleting = false;
@@ -359,6 +377,34 @@
     }
 
     // ========================
+    // CTA click tracking (mutualisé toutes pages)
+    // ========================
+    function initCtaTracking() {
+        // Exclut le bouton submit (compté via form_submit / generate_lead).
+        const sel = '.btn-primary:not([type="submit"]), .pole-link, .nav-cta, .floating-cta';
+        document.querySelectorAll(sel).forEach((el) => {
+            el.addEventListener('click', () => {
+                trackEvent('cta_click', {
+                    cta_text: (el.textContent || '').trim().slice(0, 50),
+                    cta_location: (el.className || '').split(' ')[0],
+                });
+            });
+        });
+    }
+
+    // ========================
+    // Contact link tracking (tel: / mailto:) — micro-conversions
+    // ========================
+    function initContactLinkTracking() {
+        document.querySelectorAll('a[href^="tel:"]').forEach((a) => {
+            a.addEventListener('click', () => trackEvent('contact_click', { method: 'phone' }));
+        });
+        document.querySelectorAll('a[href^="mailto:"]').forEach((a) => {
+            a.addEventListener('click', () => trackEvent('contact_click', { method: 'email' }));
+        });
+    }
+
+    // ========================
     // Export
     // ========================
     window.Portfolio = {
@@ -373,5 +419,7 @@
         initCookieBannerObserver,
         initServiceTabs,
         initHeroTyping,
+        initCtaTracking,
+        initContactLinkTracking,
     };
 })();

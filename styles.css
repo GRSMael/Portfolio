@@ -1,6 +1,6 @@
 /* ========================================
    Portfolio Pro, Maël Grosa
-   Adaptive Light/Dark based on OS setting
+   Mode clair forcé par défaut, bascule sombre manuelle persistante
    v2, All audit fixes applied
    ======================================== */
 
@@ -40,35 +40,10 @@
     --nav-bg: rgba(245, 240, 230, 0.90);
 }
 
-/* --- Dark Mode (OS preference) --- */
-/* Only activates when no manual [data-theme] override is set */
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-        --bg: #141210;
-        --bg-alt: #1c1a17;
-        --bg-card: #211f1b;
-        --bg-card-hover: #2a2824;
-        --border: #352f28;
-        --border-hover: #443d35;
-        --text: #d6d0c8;
-        --text-heading: #f5f0e8;
-        --text-muted: #a39b93;
-        --text-light: #736b63;
-        --accent: #5b9bf5;
-        --accent-light: #8ab8f8;
-        --accent-bg: rgba(91, 155, 245, 0.12);
-        --accent-shadow: rgba(91, 155, 245, 0.22);
-        --green: #34d399;
-        --green-bg: rgba(52, 211, 153, 0.1);
-        --sun: #f0a945;
-        --featured-bg: linear-gradient(135deg, rgba(91, 155, 245, 0.08), rgba(138, 184, 248, 0.05));
-        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
-        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
-        --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
-        --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.4);
-        --nav-bg: rgba(20, 18, 16, 0.88);
-    }
-}
+/* Dark Mode : variables définies plus bas dans [data-theme="dark"] (bascule manuelle).
+   L'ancien bloc @media (prefers-color-scheme: dark) ciblant :root:not([data-theme="light"])
+   était inerte (data-theme="light" forcé en dur sur <html>) : supprimé pour éviter la
+   duplication des ~24 variables sombres. */
 
 /* --- Reset --- */
 *,
@@ -1171,19 +1146,101 @@ section {
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease;
+    /* Retire la réponse repliée de l'arbre d'accessibilité et du tab order
+       (visibility différée pour rester visible pendant l'animation de fermeture). */
+    visibility: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease, visibility 0s linear 0.35s;
     padding: 0 1.5rem;
 }
 
 .faq-item.active .faq-answer {
     max-height: 300px;
+    visibility: visible;
     padding: 0 1.5rem 1.25rem;
+    transition: max-height 0.35s ease, padding 0.35s ease, visibility 0s;
 }
 
 .faq-answer p {
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.7;
+}
+
+/* --- Preuve sociale --- */
+.social-proof {
+    padding: 80px 0;
+    background: var(--bg);
+}
+
+.proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.proof-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.proof-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.proof-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.proof-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-heading);
+    margin-bottom: 0.5rem;
+}
+
+.proof-text {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.proof-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.proof-link:hover {
+    text-decoration: underline;
+}
+
+/* Titre de section "valeurs" (about.html) — rétablit la hiérarchie h2 > h3 */
+.values-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: 1rem;
 }
 
 /* --- Contact --- */
@@ -1236,7 +1293,7 @@ section {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: var(--text-light);
+    color: var(--text-muted); /* ~4.6:1, lisible (l'ancien --text-light était ~2.44:1) */
 }
 
 .form-group input:focus,
@@ -1244,7 +1301,7 @@ section {
 .form-group select:focus {
     outline: none;
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-shadow);
+    box-shadow: 0 0 0 3px rgba(26, 86, 196, 0.45); /* anneau de focus renforcé (était 0.18) */
 }
 
 .form-group textarea {
@@ -1483,8 +1540,8 @@ section {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 50%;
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;

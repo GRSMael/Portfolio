@@ -4,28 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maël Grosa, Concepteur Web & Marketing Digital Freelance à Marseille</title>
+    <title>Concepteur web &amp; marketing à Marseille | Maël Grosa</title>
     <meta name="description"
         content="Maël Grosa, concepteur web et marketing digital freelance à Marseille : sites internet, SEO, Google Ads et acquisition digitale. Devis gratuit.">
     <meta name="author" content="Maël Grosa">
-    <meta name="keywords" content="concepteur web freelance, marketing digital, SEO, Google Ads, Social Ads, création site internet, développeur web Marseille, growth hacker, acquisition digitale">
-    <meta property="og:title" content="Maël Grosa, Concepteur Web & Marketing Digital Freelance à Marseille">
+    <meta property="og:title" content="Concepteur web & marketing à Marseille | Maël Grosa">
     <meta property="og:description" content="Création de sites web sur-mesure et stratégie d'acquisition digitale : SEO, Google Ads, Social Ads. Devis gratuit.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.grosamael.fr/images/og-image.jpg">
-    <meta property="og:url" content="https://www.grosamael.fr">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Maël Grosa, concepteur web et marketing digital freelance à Marseille">
+    <meta property="og:url" content="https://www.grosamael.fr/">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Concepteur web & marketing à Marseille | Maël Grosa">
+    <meta name="twitter:description" content="Création de sites web sur-mesure et stratégie d'acquisition digitale : SEO, Google Ads, Social Ads. Devis gratuit.">
+    <meta name="twitter:image" content="https://www.grosamael.fr/images/og-image.jpg">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="geo.region" content="FR-PAC">
     <meta name="geo.placename" content="Marseille">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Maël Grosa, Web & Marketing Digital">
-    <link rel="canonical" href="https://www.grosamael.fr">
+    <link rel="canonical" href="https://www.grosamael.fr/">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%231a56c4'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>MG</text></svg>">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
     <link rel="dns-prefetch" href="https://api.web3forms.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://www.clarity.ms">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,14 +48,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous"></noscript>
 
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="dist/styles.min.css?v=20260701" as="style">
+    <link rel="stylesheet" href="dist/styles.min.css?v=20260701">
+    <!-- Préchargement de l'image LCP du hero (PRO-REFLEX) en AVIF -->
+    <link rel="preload" as="image" href="images/proreflex.avif" type="image/avif" fetchpriority="high">
     <meta name="color-scheme" content="dark light">
     <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
     <link rel="apple-touch-icon" href="/images/icon-192.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="alternate" hreflang="fr" href="https://www.grosamael.fr">
+    <link rel="alternate" hreflang="fr" href="https://www.grosamael.fr/">
+    <link rel="alternate" hreflang="x-default" href="https://www.grosamael.fr/">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -59,7 +69,7 @@
           "@type": "Person",
           "@id": "https://www.grosamael.fr/#person",
           "name": "Maël Grosa",
-          "url": "https://www.grosamael.fr",
+          "url": "https://www.grosamael.fr/",
           "email": "contact@grosamael.fr",
           "telephone": "+33749462362",
           "jobTitle": "Concepteur Web & Consultant Marketing Digital Freelance",
@@ -72,12 +82,17 @@
           "@type": "ProfessionalService",
           "@id": "https://www.grosamael.fr/#service",
           "name": "Maël Grosa, Concepteur Web & Marketing Digital Freelance",
-          "url": "https://www.grosamael.fr",
+          "url": "https://www.grosamael.fr/",
           "sameAs": "https://www.grosamael.fr/devis.html",
           "email": "contact@grosamael.fr",
           "telephone": "+33749462362",
           "description": "Création de sites internet sur-mesure et stratégie d'acquisition digitale : SEO, Google Ads, Social Ads, email marketing. Pour TPE, artisans et indépendants à Marseille et partout en France.",
-          "areaServed": [{ "@type": "Country", "name": "FR" }],
+          "image": "https://www.grosamael.fr/images/og-image.jpg",
+          "logo": "https://www.grosamael.fr/images/og-image.jpg",
+          "address": { "@type": "PostalAddress", "addressLocality": "Marseille", "addressRegion": "Provence-Alpes-Côte d'Azur", "postalCode": "13000", "addressCountry": "FR" },
+          "geo": { "@type": "GeoCoordinates", "latitude": 43.2965, "longitude": 5.3698 },
+          "areaServed": [{ "@type": "City", "name": "Marseille" }, { "@type": "Country", "name": "FR" }],
+          "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "19:00" }],
           "priceRange": "€-€€€",
           "provider": { "@id": "https://www.grosamael.fr/#person" },
           "hasOfferCatalog": {
@@ -101,27 +116,18 @@
         {
           "@type": "WebSite",
           "@id": "https://www.grosamael.fr/#website",
-          "url": "https://www.grosamael.fr",
+          "url": "https://www.grosamael.fr/",
           "name": "Maël Grosa, Concepteur Web & Marketing Digital Freelance",
           "description": "Portfolio et services de Maël Grosa, concepteur web et consultant marketing digital freelance à Marseille",
           "publisher": { "@id": "https://www.grosamael.fr/#person" },
           "inLanguage": "fr-FR"
-        },
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.grosamael.fr" },
-            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.grosamael.fr/#services" },
-            { "@type": "ListItem", "position": 3, "name": "Réalisations", "item": "https://www.grosamael.fr/#realisations" },
-            { "@type": "ListItem", "position": 4, "name": "Contact", "item": "https://www.grosamael.fr/#contact" }
-          ]
         }
       ]
     }
     </script>
 
-    <!-- Consentement RGPD, charge Clarity & GTM uniquement après accord -->
-    <script src="cookie-consent.js" defer></script>
+    <!-- Consentement RGPD : charge Clarity & GA4 uniquement après accord -->
+    <script src="dist/cookie-consent.min.js?v=20260701" defer></script>
 </head>
 
 <body>
@@ -130,27 +136,29 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">Maël Grosa<span class="nav-dot">.</span></a>
+            <a href="index.html" class="nav-logo">Maël Grosa<span class="nav-dot">.</span></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="#accueil" class="nav-link" aria-current="page">Accueil</a></li>
                 <li><a href="creation-web.html" class="nav-link">Création web</a></li>
                 <li><a href="marketing-digital.html" class="nav-link">Marketing digital</a></li>
                 <li><a href="informatique.html" class="nav-link">Informatique</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="about.html" class="nav-link">À propos</a></li>
                 <li><a href="#realisations" class="nav-link">Réalisations</a></li>
-                <li><a href="#contact" class="nav-link nav-cta"><i class="fas fa-paper-plane"></i> Me contacter</a></li>
+                <li><a href="#contact" class="nav-link nav-cta"><i aria-hidden="true" class="fas fa-paper-plane"></i> Me contacter</a></li>
             </ul>
             <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre">
-                <i class="fas fa-moon" id="themeIcon"></i>
+                <i aria-hidden="true" class="fas fa-moon" id="themeIcon"></i>
             </button>
         </div>
     </nav>
 
+    <main id="accueil" tabindex="-1">
     <!-- Hero -->
-    <section id="accueil" class="hero">
+    <section class="hero">
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text">
@@ -165,9 +173,9 @@
                         pour transformer votre présence en ligne en <strong>machine à clients</strong>.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Demander un devis
+                        <a href="#contact" class="btn btn-primary"><i aria-hidden="true" class="fas fa-paper-plane"></i> Demander un devis
                             gratuit</a>
-                        <a href="#realisations" class="btn btn-outline"><i class="fas fa-eye"></i> Voir mes
+                        <a href="#realisations" class="btn btn-outline"><i aria-hidden="true" class="fas fa-eye"></i> Voir mes
                             réalisations</a>
                     </div>
                 </div>
@@ -191,7 +199,7 @@
         </div>
         <div class="hero-scroll-indicator" aria-hidden="true">
             <span>Découvrir</span>
-            <i class="fas fa-chevron-down"></i>
+            <i aria-hidden="true" class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -205,7 +213,7 @@
             </div>
             <div class="poles-grid">
                 <article class="pole-card">
-                    <div class="pole-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="pole-icon"><i aria-hidden="true" class="fas fa-laptop-code"></i></div>
                     <h3 class="pole-title">Création de site web</h3>
                     <p class="pole-desc">Sites vitrines, landing pages et applications web sur-mesure, élégants, rapides
                         et pensés pour convertir vos visiteurs en clients.</p>
@@ -214,10 +222,10 @@
                         <li>Landing page</li>
                         <li>Application web</li>
                     </ul>
-                    <a href="creation-web.html" class="pole-link">En savoir + <i class="fas fa-arrow-right"></i></a>
+                    <a href="creation-web.html" class="pole-link">En savoir + <i aria-hidden="true" class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="pole-card">
-                    <div class="pole-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="pole-icon"><i aria-hidden="true" class="fas fa-rocket"></i></div>
                     <h3 class="pole-title">Marketing digital &amp; acquisition</h3>
                     <p class="pole-desc">SEO, Google Ads, Social Ads et automatisation : j'attire un trafic qualifié et je
                         transforme votre présence en ligne en machine à clients.</p>
@@ -226,10 +234,10 @@
                         <li>Google &amp; Social Ads</li>
                         <li>Automatisation</li>
                     </ul>
-                    <a href="marketing-digital.html" class="pole-link">En savoir + <i class="fas fa-arrow-right"></i></a>
+                    <a href="marketing-digital.html" class="pole-link">En savoir + <i aria-hidden="true" class="fas fa-arrow-right"></i></a>
                 </article>
                 <article class="pole-card">
-                    <div class="pole-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="pole-icon"><i aria-hidden="true" class="fas fa-microchip"></i></div>
                     <h3 class="pole-title">Informatique &amp; matériel</h3>
                     <p class="pole-desc">Montage, réparation et optimisation de PC, plus achat et revente de matériel
                         informatique en tout genre. Pour les particuliers comme pour les pros.</p>
@@ -238,7 +246,7 @@
                         <li>Réparation</li>
                         <li>Achat / revente</li>
                     </ul>
-                    <a href="informatique.html" class="pole-link">En savoir + <i class="fas fa-arrow-right"></i></a>
+                    <a href="informatique.html" class="pole-link">En savoir + <i aria-hidden="true" class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
         </div>
@@ -248,7 +256,7 @@
     <div class="cta-interstitiel">
         <div class="container">
             <p>Vous avez un projet similaire à l'un de ces exemples ?</p>
-            <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Parlons-en gratuitement</a>
+            <a href="#contact" class="btn btn-primary"><i aria-hidden="true" class="fas fa-paper-plane"></i> Parlons-en gratuitement</a>
         </div>
     </div>
 
@@ -275,7 +283,7 @@
                         <h3 class="portfolio-title">Viet Wok · Restaurant</h3>
                         <p class="portfolio-desc">Site vitrine coloré pour un restaurant vietnamien. Menu interactif avec photos, design pop et chaleureux, responsive et SEO optimisé.</p>
                         <div class="portfolio-footer">
-                            <a href="demos/restaurant/index.html" target="_blank" rel="noopener noreferrer" class="portfolio-link" data-demo="restaurant" aria-label="Voir le site Viet Wok · Restaurant">
+                            <a href="demos/restaurant/index.html" target="_blank" rel="noopener noreferrer" class="portfolio-link" data-demo="restaurant" aria-label="Voir le site Viet Wok · Restaurant (nouvelle fenêtre)">
                                 Voir le site <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -294,7 +302,7 @@
                         <h3 class="portfolio-title">PRO-REFLEX · Bâtiment</h3>
                         <p class="portfolio-desc">Site vitrine pour une entreprise générale de bâtiment (Marseille &amp; PACA) : avant/après chantiers, partenaires assureurs, prise de contact directe. Sobre et pro.</p>
                         <div class="portfolio-footer">
-                            <a href="https://pro-reflex.fr/" target="_blank" rel="noopener noreferrer" class="portfolio-link" aria-label="Voir le site PRO-REFLEX">
+                            <a href="https://pro-reflex.fr/" target="_blank" rel="noopener noreferrer" class="portfolio-link" data-demo="proreflex" aria-label="Voir le site PRO-REFLEX (nouvelle fenêtre)">
                                 Voir le site <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -313,11 +321,36 @@
                         <h3 class="portfolio-title">SCOLIA · Gestion scolaire</h3>
                         <p class="portfolio-desc">Landing page de recueil d'avis présentant le prototype d'une application web et mobile de gestion scolaire. Projet réalisé dans un cadre scolaire.</p>
                         <div class="portfolio-footer">
-                            <a href="https://scolia-reader.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-link" aria-label="Voir le site SCOLIA">
+                            <a href="https://scolia-reader.vercel.app/" target="_blank" rel="noopener noreferrer" class="portfolio-link" data-demo="scolia" aria-label="Voir le site SCOLIA (nouvelle fenêtre)">
                                 Voir le site <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preuve sociale -->
+    <section class="social-proof" aria-labelledby="confiance-title">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Confiance</span>
+                <h2 class="section-title" id="confiance-title">Ils m'ont fait confiance</h2>
+                <p class="section-subtitle">Des projets réels, livrés pour de vrais clients. Mes avis détaillés sont consultables sur Malt.</p>
+            </div>
+            <div class="proof-grid">
+                <article class="proof-card">
+                    <div class="proof-icon"><i class="fas fa-building" aria-hidden="true"></i></div>
+                    <h3 class="proof-name">PRO-REFLEX · Bâtiment</h3>
+                    <p class="proof-text">Entreprise générale de bâtiment à Marseille. Création du site vitrine : avant/après chantiers, partenaires assureurs et prise de contact directe.</p>
+                    <a href="https://pro-reflex.fr/" target="_blank" rel="noopener noreferrer" class="proof-link" aria-label="Voir le site PRO-REFLEX (nouvelle fenêtre)">pro-reflex.fr <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
+                <article class="proof-card">
+                    <div class="proof-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
+                    <h3 class="proof-name">Avis vérifiés sur Malt</h3>
+                    <p class="proof-text">Retrouvez mon profil freelance et les retours clients sur Malt, la plateforme de référence pour les indépendants.</p>
+                    <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer" class="proof-link" aria-label="Voir mon profil Malt (nouvelle fenêtre)">Mon profil Malt <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                 </article>
             </div>
         </div>
@@ -369,7 +402,7 @@
                             </select>
                         </div>
                     </div>
-                    <p class="form-contact-hint"><i class="fas fa-info-circle"></i> Renseignez au moins un moyen de
+                    <p class="form-contact-hint"><i aria-hidden="true" class="fas fa-info-circle"></i> Renseignez au moins un moyen de
                         contact (email ou téléphone).</p>
                     <span id="hint-contact" class="sr-only">Renseignez votre email ou votre numéro de téléphone</span>
                     <div class="form-group">
@@ -379,34 +412,34 @@
                             rows="5" required autocomplete="off"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-submit">
-                        <i class="fas fa-paper-plane"></i> Envoyer ma demande de devis
+                        <i aria-hidden="true" class="fas fa-paper-plane"></i> Envoyer ma demande de devis
                     </button>
-                    <p class="form-hint"><i class="fas fa-lock"></i> Gratuit et sans engagement. Réponse sous 24h.</p>
+                    <p class="form-hint"><i aria-hidden="true" class="fas fa-lock"></i> Gratuit et sans engagement. Réponse sous 24h.</p>
                 </form>
                 <div class="contact-aside">
                     <div class="aside-card">
-                        <div class="aside-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="aside-icon"><i aria-hidden="true" class="fas fa-envelope"></i></div>
                         <div>
                             <h3>Email</h3>
                             <a href="mailto:contact@grosamael.fr">contact@grosamael.fr</a>
                         </div>
                     </div>
                     <div class="aside-card">
-                        <div class="aside-icon"><i class="fas fa-phone"></i></div>
+                        <div class="aside-icon"><i aria-hidden="true" class="fas fa-phone"></i></div>
                         <div>
                             <h3>Téléphone</h3>
                             <a href="tel:+33749462362">07 49 46 23 62</a>
                         </div>
                     </div>
                     <div class="aside-card">
-                        <div class="aside-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="aside-icon"><i aria-hidden="true" class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h3>Localisation</h3>
                             <p>France, je travaille à distance</p>
                         </div>
                     </div>
                     <div class="aside-card">
-                        <div class="aside-icon"><i class="fas fa-clock"></i></div>
+                        <div class="aside-icon"><i aria-hidden="true" class="fas fa-clock"></i></div>
                         <div>
                             <h3>Disponibilité</h3>
                             <p>Disponible pour de nouveaux projets</p>
@@ -414,23 +447,24 @@
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/JLMael" target="_blank" rel="noopener noreferrer"
-                            aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            aria-label="GitHub (nouvelle fenêtre)"><i aria-hidden="true" class="fab fa-github"></i></a>
                         <a href="https://www.linkedin.com/in/ma%C3%ABl-grosa-894698248/" target="_blank"
-                            rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer" aria-label="Malt"><i class="fas fa-briefcase"></i></a>
-                        <a href="mailto:contact@grosamael.fr" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            rel="noopener noreferrer" aria-label="LinkedIn (nouvelle fenêtre)"><i aria-hidden="true" class="fab fa-linkedin"></i></a>
+                        <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer" aria-label="Malt (nouvelle fenêtre)"><i aria-hidden="true" class="fas fa-briefcase"></i></a>
+                        <a href="mailto:contact@grosamael.fr" aria-label="Email"><i aria-hidden="true" class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="footer-logo">Maël Grosa<span>.</span></a>
+                    <a href="index.html" class="footer-logo">Maël Grosa<span>.</span></a>
                     <p>Concepteur Web & Marketing Digital Freelance.<br>Sites web et stratégies d'acquisition pour développer votre activité.</p>
                 </div>
                 <div class="footer-links">
@@ -442,6 +476,8 @@
                     <a href="about.html">À propos</a>
                     <a href="#realisations">Réalisations</a>
                     <a href="#contact">Contact</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="tarifs.html">Tarifs</a>
                     <a href="mentions-legales.html">Mentions légales</a>
                 </div>
                 <div class="footer-links">
@@ -454,35 +490,35 @@
                 </div>
                 <div class="footer-links">
                     <h4>Contact</h4>
-                    <a href="mailto:contact@grosamael.fr"><i class="fas fa-envelope"></i> contact@grosamael.fr</a>
-                    <a href="https://github.com/JLMael" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/ma%C3%ABl-grosa-894698248/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase"></i> Malt</a>
+                    <a href="mailto:contact@grosamael.fr"><i aria-hidden="true" class="fas fa-envelope"></i> contact@grosamael.fr</a>
+                    <a href="https://github.com/JLMael" target="_blank" rel="noopener noreferrer"><i aria-hidden="true" class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/ma%C3%ABl-grosa-894698248/" target="_blank" rel="noopener noreferrer"><i aria-hidden="true" class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer"><i aria-hidden="true" class="fas fa-briefcase"></i> Malt</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Maël Grosa, Concepteur Web & Marketing Digital Freelance. Tous droits réservés.</p>
-                <p><a href="#" id="manageCookiesLink" style="color: inherit; text-decoration: underline; cursor: pointer; font-size: 0.75rem;">Gérer les cookies</a></p>
+                <p><button type="button" id="manageCookiesLink" style="background:none;border:none;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font-size:0.75rem;font-family:inherit;">Gérer les cookies</button></p>
             </div>
         </div>
     </footer>
 
     <!-- Floating CTA -->
     <a href="#contact" class="floating-cta" id="floatingCta" title="Prendre contact">
-        <i class="fas fa-paper-plane"></i>
+        <i aria-hidden="true" class="fas fa-paper-plane"></i>
         <span>Devis gratuit</span>
     </a>
 
     <!-- Toast -->
     <div class="toast-notification" id="toast" role="alert" aria-live="assertive">
-        <i class="fas fa-check-circle"></i>
+        <i aria-hidden="true" class="fas fa-check-circle"></i>
         <span>Message envoyé avec succès !</span>
     </div>
 
-    <!-- EmailJS -->
-    <script src="emailjs-config.js"></script>
-    <script src="shared.js" defer></script>
-    <script src="script.js" defer></script>
+    <!-- Config contact (Web3Forms) -->
+    <script src="dist/contact-config.min.js?v=20260701" defer></script>
+    <script src="dist/shared.min.js?v=20260701" defer></script>
+    <script src="dist/script.min.js?v=20260701" defer></script>
 
     <noscript>
       <p style="text-align:center;padding:2rem;">Ce formulaire nécessite JavaScript. Contactez-moi directement à <a href="mailto:contact@grosamael.fr">contact@grosamael.fr</a>.</p>

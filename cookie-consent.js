@@ -3,12 +3,13 @@
  * Gestionnaire de consentement RGPD - Maël Grosa Portfolio
  *
  * Ce script gère le consentement cookies AVANT de charger
- * Microsoft Clarity et Google Tag Manager (gtag).
+ * Microsoft Clarity et Google Analytics 4 (gtag.js). Il n'y a pas de
+ * conteneur Google Tag Manager : on charge directement gtag.js.
  *
  * Comportement :
- *  - Clarity & GTM sont bloqués jusqu'à acceptation explicite
+ *  - Clarity & GA4 sont bloqués jusqu'à acceptation explicite
  *  - Le choix est stocké en localStorage (clé: mg_cookie_consent)
- *  - Valeur "granted" → trackers activés
+ *  - Valeur "granted" → analyse d'audience activée (pas de signaux publicitaires)
  *  - Valeur "denied"  → trackers jamais chargés
  *  - La bannière réapparaît si aucun choix n'a été fait
  */
@@ -18,12 +19,13 @@
 
     // ─── Config ────────────────────────────────────────────────────────────────
     const STORAGE_KEY = 'mg_cookie_consent';
-    const GTM_ID = 'G-R45SSMC4CZ';
+    const GA4_ID = 'G-R45SSMC4CZ'; // ID de mesure Google Analytics 4 (aucun conteneur GTM)
     const CLARITY_ID = 'vrpnk2eyif';
     const EXPIRY_DAYS = 180; // 6 mois
 
-    // ─── Init GTM en mode "consent denied" par défaut ─────────────────────────
-    // Permet à GTM de fonctionner niveau infrastructure sans collecter de données.
+    // ─── Init gtag en mode "consent denied" par défaut ────────────────────────
+    // Pose le Consent Mode de gtag.js sans collecter de données tant que
+    // l'utilisateur n'a pas accepté.
     window.dataLayer = window.dataLayer || [];
     function gtag() { window.dataLayer.push(arguments); }
 
@@ -38,7 +40,7 @@
     });
 
     gtag('js', new Date());
-    gtag('config', GTM_ID, { send_page_view: false });
+    gtag('config', GA4_ID, { send_page_view: false });
 
     // ─── Helpers ───────────────────────────────────────────────────────────────
     function getConsent() {
@@ -58,21 +60,30 @@
     }
 
     // ─── Chargement conditionnel des trackers ──────────────────────────────────
-    function loadGTM() {
-        if (document.getElementById('gtm-script')) return;
+    function loadAnalytics() {
+        if (document.getElementById('ga-script')) return;
         const s = document.createElement('script');
-        s.id = 'gtm-script';
+        s.id = 'ga-script';
         s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GTM_ID;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
         document.head.appendChild(s);
-        // Mettre à jour le consentement GTM
+        // Consentement : analyse d'audience UNIQUEMENT. Les signaux publicitaires
+        // restent "denied" car la bannière et les mentions légales ne décrivent
+        // que de la mesure d'audience, aucun ciblage publicitaire.
         gtag('consent', 'update', {
             analytics_storage: 'granted',
-            ad_storage: 'granted',
-            ad_user_data: 'granted',
-            ad_personalization: 'granted',
         });
-        gtag('config', GTM_ID, { send_page_view: true });
+        gtag('config', GA4_ID, { send_page_view: true });
+    }
+
+    function detectPageType() {
+        const p = location.pathname.replace(/\/+$/, '');
+        if (p === '' || /\/index\.html$/.test(p)) return 'index';
+        if (/\/devis\.html$/.test(p)) return 'devis';
+        if (/\/(creation-web|marketing-digital|informatique)\.html$/.test(p)) return 'pole';
+        if (/\/about\.html$/.test(p)) return 'about';
+        if (/\/mentions-legales\.html$/.test(p)) return 'legal';
+        return 'autre';
     }
 
     function loadClarity() {
@@ -83,10 +94,14 @@
             t.src = 'https://www.clarity.ms/tag/' + i;
             y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, 'clarity', 'script', CLARITY_ID);
+        // Tag de session : type de page (utile pour segmenter les enregistrements).
+        if (typeof window.clarity === 'function') {
+            window.clarity('set', 'page_type', detectPageType());
+        }
     }
 
     function activateTrackers() {
-        loadGTM();
+        loadAnalytics();
         loadClarity();
     }
 
@@ -200,15 +215,17 @@
         box-shadow: 0 6px 20px rgba(26, 86, 196, 0.55);
       }
 
+      /* Refuser doit être aussi lisible qu'Accepter (symétrie CNIL) :
+         même taille (.mg-btn), texte plein contraste, fond visible. */
       #mg-btn-deny {
-        background: transparent;
-        color: rgba(255,255,255,0.55);
-        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255,255,255,0.14);
+        color: #ffffff;
+        border: 1px solid rgba(255,255,255,0.35);
       }
 
       #mg-btn-deny:hover {
-        color: rgba(255,255,255,0.85);
-        border-color: rgba(255,255,255,0.3);
+        background: rgba(255,255,255,0.22);
+        border-color: rgba(255,255,255,0.55);
       }
 
       @media (max-width: 560px) {
@@ -326,10 +343,21 @@
         bindManageCookiesLink();
     }
 
+    // Expire un cookie sur le domaine courant et le domaine parent (.grosamael.fr)
+    function expireCookie(name) {
+        const bare = location.hostname.replace(/^www\./, '');
+        const past = 'Thu, 01 Jan 1970 00:00:00 GMT';
+        document.cookie = name + '=; expires=' + past + '; path=/';
+        document.cookie = name + '=; expires=' + past + '; path=/; domain=' + location.hostname;
+        document.cookie = name + '=; expires=' + past + '; path=/; domain=.' + bare;
+    }
+
     // Expose pour le lien "Gérer les cookies" dans le footer
     window.resetCookieConsent = function () {
         localStorage.removeItem(STORAGE_KEY);
         localStorage.removeItem(STORAGE_KEY + '_date');
+        // Retrait du consentement : on supprime aussi les cookies GA4 / Clarity déjà posés.
+        ['_ga', '_ga_' + GA4_ID.replace(/^G-/, ''), '_gid', '_clck', '_clsk'].forEach(expireCookie);
         location.reload();
     };
 

@@ -64,6 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // ========================
     document.addEventListener("keydown", (e) => {
         if (!navMenu?.classList.contains("active")) return;
+        // Échap ferme le menu et rend le focus au hamburger (closeMenu() fait navToggle.focus()).
+        if (e.key === "Escape") { closeMenu(); return; }
         if (e.key !== "Tab") return;
 
         const focusable = [
@@ -150,20 +152,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ========================
-    // Track demo clicks
+    // Track outbound clicks (réalisations : Viet Wok, PRO-REFLEX, SCOLIA)
     // ========================
-    document.querySelectorAll('.portfolio-link[data-demo]').forEach((link) => {
+    document.querySelectorAll('.portfolio-link').forEach((link) => {
         link.addEventListener('click', () => {
-            P.trackEvent('demo_view', { demo_name: link.dataset.demo });
+            P.trackEvent('outbound_click', {
+                destination: link.href,
+                label: link.getAttribute('aria-label') || link.textContent.trim().slice(0, 50),
+            });
+            if (link.dataset.demo) P.trackEvent('demo_view', { demo_name: link.dataset.demo });
         });
     });
 
-    // Track CTA clicks
-    document.querySelectorAll('.btn-primary, .floating-cta').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            P.trackEvent('cta_click', { cta_text: btn.textContent.trim().slice(0, 50) });
-        });
-    });
+    // CTA + liens de contact (mutualisés via shared.js, exclut le submit)
+    P.initCtaTracking();
+    P.initContactLinkTracking();
 
     // ========================
     // FAQ Accordion (via shared.js, handles ARIA)
@@ -189,39 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Smooth scroll (via shared.js)
     // ========================
     P.initSmoothScroll();
-
-    // ========================
-    // Animated counters
-    // ========================
-    const counterObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                const counters = entry.target.querySelectorAll("[data-count]");
-                counters.forEach((el) => {
-                    const target = parseInt(el.dataset.count, 10);
-                    const suffix = el.dataset.suffix || "";
-                    const duration = 1200;
-                    const start = performance.now();
-
-                    function update(now) {
-                        const elapsed = now - start;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const eased = 1 - Math.pow(1 - progress, 4);
-                        const current = Math.round(eased * target);
-                        el.textContent = current + suffix;
-                        if (progress < 1) requestAnimationFrame(update);
-                    }
-                    requestAnimationFrame(update);
-                });
-                counterObserver.unobserve(entry.target);
-            });
-        },
-        { threshold: 0.3 }
-    );
-
-    const statsSection = document.querySelector(".about-stats");
-    if (statsSection) counterObserver.observe(statsSection);
 
     // ========================
     // Cookie banner CTA collision (via shared.js)
@@ -274,8 +244,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // --- Parallaxe du groupe de cartes hero (suit le curseur, avec inertie) ---
+        // Réutilise heroVisual déjà requêté plus haut (évite une 2e requête DOM).
         const hero = document.querySelector(".hero");
-        const heroVisual = document.querySelector(".hero-visual");
         if (hero && heroVisual) {
             let tX = 0, tY = 0, cX = 0, cY = 0, raf = null;
             const tick = () => {

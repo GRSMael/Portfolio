@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devis Site Web Gratuit · Maël Grosa, Concepteur Web Freelance</title>
     <meta name="description" content="Demandez votre devis gratuit pour la création de votre site internet professionnel. Sites vitrines à partir de 400€, landing pages dès 250€. Réponse sous 24h.">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://www.grosamael.fr/devis.html">
     <meta property="og:title" content="Devis Site Web Gratuit · Maël Grosa">
     <meta property="og:description" content="Création de sites internet sur-mesure pour entreprises et indépendants. Devis gratuit, réponse sous 24h.">
@@ -15,12 +15,21 @@
     <meta property="og:url" content="https://www.grosamael.fr/devis.html">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Maël Grosa">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Devis gratuit pour votre site web, Maël Grosa à Marseille">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Devis Site Web Gratuit · Maël Grosa">
+    <meta name="twitter:description" content="Création de sites internet sur-mesure pour entreprises et indépendants. Devis gratuit, réponse sous 24h.">
+    <meta name="twitter:image" content="https://www.grosamael.fr/images/og-image.jpg">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%231a56c4'/><text x='50' y='68' font-size='50' font-family='system-ui' font-weight='bold' fill='white' text-anchor='middle'>MG</text></svg>">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
 
     <!-- Consentement RGPD -->
-    <script src="cookie-consent.js" defer></script>
+    <script src="dist/cookie-consent.min.js?v=20260701" defer></script>
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,12 +39,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQODekUVeKKZrEnEyp4H2R0RHFz0KWpmj7i8g" crossorigin="anonymous"></noscript>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dist/styles.min.css?v=20260701">
     <meta name="color-scheme" content="dark light">
     <meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
     <link rel="manifest" href="/manifest.json">
     <link rel="alternate" hreflang="fr" href="https://www.grosamael.fr/devis.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.grosamael.fr/devis.html">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -118,17 +128,18 @@
 </head>
 
 <body>
-    <a href="#devis" class="skip-link">Aller au contenu principal</a>
+    <a href="#contenu" class="skip-link">Aller au contenu principal</a>
 
     <!-- Mini-header -->
     <header class="devis-header">
         <a href="index.html" class="nav-logo">Maël Grosa<span class="nav-dot">.</span></a>
         <div class="devis-header-right">
-            <span class="devis-badge"><i class="fas fa-check"></i> Devis gratuit en 24h</span>
-            <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre"><i class="fas fa-moon" id="themeIcon"></i></button>
+            <span class="devis-badge"><i aria-hidden="true" class="fas fa-check"></i> Devis gratuit en 24h</span>
+            <button class="theme-toggle" id="themeToggle" aria-label="Passer en mode sombre"><i aria-hidden="true" class="fas fa-moon" id="themeIcon"></i></button>
         </div>
     </header>
 
+    <main id="contenu" tabindex="-1">
     <!-- Hero -->
     <section class="devis-hero">
         <div class="container">
@@ -138,19 +149,21 @@
                     <h1>Votre site web professionnel,<br>livré en <em>2 semaines</em></h1>
                     <p class="hero-sub">Je crée des sites internet sur-mesure pour les entreprises, artisans et indépendants. Design moderne, optimisé Google, adapté mobile. Devis gratuit et sans engagement.</p>
                     <div class="hero-buttons">
-                        <a href="#devis" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Demander mon devis gratuit</a>
-                        <a href="#tarifs" class="btn btn-outline"><i class="fas fa-euro-sign"></i> Voir les tarifs</a>
+                        <a href="#devis" class="btn btn-primary"><i aria-hidden="true" class="fas fa-paper-plane"></i> Demander mon devis gratuit</a>
+                        <a href="#tarifs" class="btn btn-outline"><i aria-hidden="true" class="fas fa-euro-sign"></i> Voir les tarifs</a>
                     </div>
                 </div>
                 <div class="devis-hero-visual hero-visual">
                     <div class="hero-card hero-card-1">
                         <picture>
+                            <source srcset="images/demo-coiffure.avif" type="image/avif">
                             <source srcset="images/demo-coiffure.webp" type="image/webp">
                             <img src="images/demo-coiffure.png" alt="Exemple site vitrine salon créé par Maël Grosa" width="800" height="600" fetchpriority="high">
                         </picture>
                     </div>
                     <div class="hero-card hero-card-2">
                         <picture>
+                            <source srcset="images/demo-restaurant.avif" type="image/avif">
                             <source srcset="images/demo-restaurant.webp" type="image/webp">
                             <img src="images/demo-restaurant.png" alt="Exemple site vitrine restaurant créé par Maël Grosa" width="800" height="600" loading="lazy">
                         </picture>
@@ -165,28 +178,28 @@
         <div class="container">
             <div class="trust-grid">
                 <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="trust-icon"><i aria-hidden="true" class="fas fa-check-circle"></i></div>
                     <div>
                         <strong>Site 100% sur-mesure</strong>
                         <span>Pas de templates génériques</span>
                     </div>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="trust-icon"><i aria-hidden="true" class="fas fa-mobile-alt"></i></div>
                     <div>
                         <strong>Adapté tous écrans</strong>
                         <span>Mobile, tablette, desktop</span>
                     </div>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-search"></i></div>
+                    <div class="trust-icon"><i aria-hidden="true" class="fas fa-search"></i></div>
                     <div>
                         <strong>Optimisé Google</strong>
                         <span>SEO inclus dans le prix</span>
                     </div>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="trust-icon"><i aria-hidden="true" class="fas fa-bolt"></i></div>
                     <div>
                         <strong>Livraison rapide</strong>
                         <span>1 à 2 semaines</span>
@@ -207,15 +220,15 @@
             <div class="services-grid">
                 <!-- Site Vitrine -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-store"></i></div>
+                    <div class="service-icon"><i aria-hidden="true" class="fas fa-store"></i></div>
                     <h3>Site Vitrine</h3>
                     <p>Un site élégant pour présenter votre activité, vos services et permettre à vos clients de vous contacter facilement.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Design pro</li>
-                        <li><i class="fas fa-check"></i> Responsive</li>
-                        <li><i class="fas fa-check"></i> Formulaire contact</li>
-                        <li><i class="fas fa-check"></i> SEO</li>
-                        <li><i class="fas fa-check"></i> Mise en ligne</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Design pro</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Responsive</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Formulaire contact</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> SEO</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Mise en ligne</li>
                     </ul>
                     <p class="service-price">À partir de <strong>400 €</strong></p>
                     <a href="#devis" class="btn btn-primary" style="width:100%; margin-top:1rem;">Demander un devis →</a>
@@ -223,30 +236,30 @@
                 <!-- Landing Page (featured) -->
                 <div class="service-card featured">
                     <div class="service-badge">Le + demandé</div>
-                    <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+                    <div class="service-icon"><i aria-hidden="true" class="fas fa-bullseye"></i></div>
                     <h3>Landing Page</h3>
                     <p>Une page percutante conçue pour convertir vos visiteurs en clients, idéale pour vos campagnes publicitaires.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Orienté conversion</li>
-                        <li><i class="fas fa-check"></i> CTA stratégiques</li>
-                        <li><i class="fas fa-check"></i> Intégration formulaire/réservation</li>
-                        <li><i class="fas fa-check"></i> Mise en ligne rapide</li>
-                        <li><i class="fas fa-check"></i> Idéal campagnes pub</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Orienté conversion</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> CTA stratégiques</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Intégration formulaire/réservation</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Mise en ligne rapide</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Idéal campagnes pub</li>
                     </ul>
                     <p class="service-price"><span class="service-price-old" style="text-decoration:line-through;color:#9ca3af;font-size:0.85rem;margin-right:0.4rem;">350 €</span> À partir de <strong>250 €</strong></p>
                     <a href="#devis" class="btn btn-primary" style="width:100%; margin-top:1rem;">Demander un devis →</a>
                 </div>
                 <!-- Application Web -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <div class="service-icon"><i aria-hidden="true" class="fas fa-code"></i></div>
                     <h3>Application Web</h3>
                     <p>Un projet plus complexe avec des fonctionnalités avancées : espace membre, gestion de contenu, base de données.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Fonctionnalités sur-mesure</li>
-                        <li><i class="fas fa-check"></i> Panneau admin</li>
-                        <li><i class="fas fa-check"></i> BDD sécurisée</li>
-                        <li><i class="fas fa-check"></i> Hébergement & maintenance</li>
-                        <li><i class="fas fa-check"></i> Évolutif</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Fonctionnalités sur-mesure</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Panneau admin</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> BDD sécurisée</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Hébergement & maintenance</li>
+                        <li><i aria-hidden="true" class="fas fa-check"></i> Évolutif</li>
                     </ul>
                     <p class="service-price">Sur <strong>devis</strong></p>
                     <a href="#devis" class="btn btn-primary" style="width:100%; margin-top:1rem;">Demander un devis →</a>
@@ -261,47 +274,21 @@
             <div class="section-header">
                 <span class="section-tag">Avis clients</span>
                 <h2 class="section-title">Ils m'ont fait confiance</h2>
-                <p class="section-subtitle">Voici ce que mes clients disent de notre collaboration.</p>
+                <p class="section-subtitle">Des projets réels, livrés pour de vrais clients. Mes avis détaillés sont consultables sur Malt.</p>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>« Maël a créé un site pour ma boutique en 10 jours. Résultat : je suis passée en première page Google en 3 semaines. Je recommande les yeux fermés ! »</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">SM</div>
-                        <div>
-                            <strong>Sophie M.</strong>
-                            <span>Gérante, boutique d'artisanat</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>« Professionnalisme et réactivité au rendez-vous. Mon site de coaching a transformé ma présence en ligne. Les demandes de rendez-vous ont doublé le premier mois. »</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">TL</div>
-                        <div>
-                            <strong>Thomas L.</strong>
-                            <span>Coach sportif indépendant</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p>« Un site magnifique, rapide et qui donne vraiment confiance aux clients. Maël a su parfaitement capturer l'ambiance de notre restaurant. »</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">MC</div>
-                        <div>
-                            <strong>Marie-Claire V.</strong>
-                            <span>Restauratrice, Marseille</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center; margin-top:2rem;">
-                <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer" class="malt-link">
-                    <i class="fas fa-briefcase"></i> Retrouvez mes avis clients sur Malt
-                </a>
+            <div class="proof-grid">
+                <article class="proof-card">
+                    <div class="proof-icon"><i class="fas fa-building" aria-hidden="true"></i></div>
+                    <h3 class="proof-name">PRO-REFLEX · Bâtiment</h3>
+                    <p class="proof-text">Entreprise générale de bâtiment à Marseille. J'ai conçu son site vitrine : présentation des chantiers, partenaires assureurs et prise de contact directe.</p>
+                    <a href="https://pro-reflex.fr/" target="_blank" rel="noopener noreferrer" class="proof-link" aria-label="Voir le site PRO-REFLEX (nouvelle fenêtre)">pro-reflex.fr <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
+                <article class="proof-card">
+                    <div class="proof-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
+                    <h3 class="proof-name">Avis vérifiés sur Malt</h3>
+                    <p class="proof-text">Consultez mon profil freelance et les retours de mes clients sur Malt, la plateforme de référence pour les indépendants.</p>
+                    <a href="https://www.malt.fr/profile/maelgrosa" target="_blank" rel="noopener noreferrer" class="proof-link" aria-label="Voir mon profil Malt (nouvelle fenêtre)">Mon profil Malt <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </article>
             </div>
         </div>
     </section>
@@ -319,19 +306,19 @@
                     <h3>Vous envoyez votre demande</h3>
                     <p>Remplissez le formulaire ci-dessous en décrivant votre projet. C'est gratuit et sans engagement.</p>
                 </div>
-                <div class="process-connector"><i class="fas fa-chevron-right"></i></div>
+                <div class="process-connector"><i aria-hidden="true" class="fas fa-chevron-right"></i></div>
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <h3>Je vous réponds sous 24h</h3>
                     <p>Je vous envoie une proposition claire avec le prix, les délais et ce qui est inclus.</p>
                 </div>
-                <div class="process-connector"><i class="fas fa-chevron-right"></i></div>
+                <div class="process-connector"><i aria-hidden="true" class="fas fa-chevron-right"></i></div>
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <h3>On crée votre site</h3>
                     <p>Je conçois votre site. Vous validez chaque étape et on ajuste ensemble selon vos retours.</p>
                 </div>
-                <div class="process-connector"><i class="fas fa-chevron-right"></i></div>
+                <div class="process-connector"><i aria-hidden="true" class="fas fa-chevron-right"></i></div>
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <h3>Mise en ligne</h3>
@@ -378,14 +365,14 @@
                         </select>
                     </div>
                 </div>
-                <p class="form-contact-hint"><i class="fas fa-info-circle"></i> Renseignez au moins un moyen de contact (email ou téléphone).</p>
+                <p class="form-contact-hint"><i aria-hidden="true" class="fas fa-info-circle"></i> Renseignez au moins un moyen de contact (email ou téléphone).</p>
                 <span id="hint-contact" class="sr-only">Renseignez votre email ou votre numéro de téléphone</span>
                 <div class="form-group">
                     <label for="message">Décrivez votre projet <span class="required">*</span></label>
                     <textarea id="message" name="message" placeholder="Décrivez brièvement votre activité et ce que vous attendez de votre site web..." rows="5" required autocomplete="off"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-submit"><i class="fas fa-paper-plane"></i> Envoyer ma demande de devis</button>
-                <p class="form-hint"><i class="fas fa-lock"></i> Gratuit et sans engagement. Réponse garantie sous 24h.</p>
+                <button type="submit" class="btn btn-primary btn-submit"><i aria-hidden="true" class="fas fa-paper-plane"></i> Envoyer ma demande de devis</button>
+                <p class="form-hint"><i aria-hidden="true" class="fas fa-lock"></i> Gratuit et sans engagement. Réponse garantie sous 24h.</p>
             </form>
         </div>
     </section>
@@ -401,7 +388,7 @@
                 <div class="faq-item">
                     <button class="faq-question" id="faq-btn-0" aria-expanded="false" aria-controls="faq-answer-0">
                         <span>Combien coûte un site web ?</span>
-                        <i class="fas fa-plus"></i>
+                        <i aria-hidden="true" class="fas fa-plus"></i>
                     </button>
                     <div class="faq-answer" id="faq-answer-0" role="region" aria-labelledby="faq-btn-0">
                         <p>Un site vitrine démarre à 400€, une landing page à 250€. Je vous envoie un devis précis après notre premier échange, sans engagement.</p>
@@ -410,7 +397,7 @@
                 <div class="faq-item">
                     <button class="faq-question" id="faq-btn-1" aria-expanded="false" aria-controls="faq-answer-1">
                         <span>Combien de temps pour avoir mon site ?</span>
-                        <i class="fas fa-plus"></i>
+                        <i aria-hidden="true" class="fas fa-plus"></i>
                     </button>
                     <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1">
                         <p>1 à 2 semaines pour un site vitrine, quelques jours pour une landing page. Le délai exact dépend de la complexité et de vos retours.</p>
@@ -419,7 +406,7 @@
                 <div class="faq-item">
                     <button class="faq-question" id="faq-btn-2" aria-expanded="false" aria-controls="faq-answer-2">
                         <span>Je n'y connais rien en technique, c'est un problème ?</span>
-                        <i class="fas fa-plus"></i>
+                        <i aria-hidden="true" class="fas fa-plus"></i>
                     </button>
                     <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
                         <p>Pas du tout ! Je m'occupe de tout de A à Z. Vous me décrivez votre activité, je fais le reste.</p>
@@ -428,21 +415,22 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Toast -->
-    <div class="toast-notification" id="toast" role="alert" aria-live="assertive"><i class="fas fa-check-circle"></i><span>Message envoyé !</span></div>
+    <div class="toast-notification" id="toast" role="alert" aria-live="assertive"><i aria-hidden="true" class="fas fa-check-circle"></i><span>Message envoyé !</span></div>
 
     <!-- Mini-footer -->
     <footer class="devis-footer">
         <div class="container">
-            <p>&copy; 2026 Maël Grosa, Concepteur Web Freelance &nbsp;·&nbsp; <a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp; <a href="#" id="manageCookiesLink">Gérer les cookies</a></p>
+            <p>&copy; 2026 Maël Grosa, Concepteur Web Freelance &nbsp;·&nbsp; <a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp; <button type="button" id="manageCookiesLink" style="background:none;border:none;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit;">Gérer les cookies</button></p>
         </div>
     </footer>
 
-    <!-- EmailJS -->
-    <script src="emailjs-config.js"></script>
-    <script src="shared.js" defer></script>
-    <script src="devis-init.js" defer></script>
+    <!-- Config contact (Web3Forms) -->
+    <script src="dist/contact-config.min.js?v=20260701" defer></script>
+    <script src="dist/shared.min.js?v=20260701" defer></script>
+    <script src="dist/devis-init.min.js?v=20260701" defer></script>
 
     <noscript>
         <p style="text-align:center;padding:2rem;">Ce formulaire nécessite JavaScript. Contactez-moi directement à <a href="mailto:contact@grosamael.fr">contact@grosamael.fr</a>.</p>
