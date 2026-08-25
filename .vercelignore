@@ -4,6 +4,5 @@
 #    À valider sur une preview : le build doit réussir après tout ajout ici.
 node_modules
 tailwind.config.js
-CLAUDE.md
 audit-prompt-action.md
 .gitignore
